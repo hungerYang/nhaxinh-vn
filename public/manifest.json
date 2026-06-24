@@ -1,0 +1,32 @@
+{
+  "name": "NhàXinh.vn - Vietnam Interior Design",
+  "short_name": "NhàXinh",
+  "description": "Vietnam's interior design sharing platform. Discover Modern Southeast Asian and French Colonial styles.",
+  "start_url": "/vi/",
+  "display": "standalone",
+  "background_color": "#F5F0E8",
+  "theme_color": "#2D5A3D",
+  "orientation": "portrait-primary",
+  "categories": ["lifestyle", "home"],
+  "lang": "vi",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

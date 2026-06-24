@@ -1,0 +1,14 @@
+[
+  {
+    "id": "u0",
+    "email": "admin@nhaxinh.vn",
+    "passwordHash": "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
+    "name": "Admin",
+    "locale": "vi",
+    "avatar": "/avatars/avatar-1.svg",
+    "favorites": [],
+    "likes": [],
+    "createdAt": "2026-06-22T08:18:05.%fZ",
+    "role": "admin"
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "id": "s1",
+    "title": "Căn hộ 45m² phong cách tối giản",
+    "description": "Mình đã cải tạo căn hộ nhỏ thành không gian sống thoáng đãng với tông màu trắng - gỗ.",
+    "image": "/images/articles/sub-1.jpg",
+    "images": ["/images/articles/sub-1.jpg"],
+    "author": "Minh Anh",
+    "authorAvatar": "",
+    "likes": 128,
+    "room": "living",
+    "style": "se-asia",
+    "date": "2026-06-14"
+  },
+  {
+    "id": "s2",
+    "title": "Nhà phố 3 tầng phong cách Indochine",
+    "description": "Kết hợp nét cổ điển Pháp với vật liệu địa phương, tạo nên không gian độc đáo.",
+    "image": "/images/articles/sub-2.jpg",
+    "images": ["/images/articles/sub-2.jpg"],
+    "author": "Hương Lê",
+    "authorAvatar": "",
+    "likes": 95,
+    "room": "living",
+    "style": "french",
+    "date": "2026-06-11"
+  },
+  {
+    "id": "s3",
+    "title": "Ban công xanh mát giữa Sài Gòn",
+    "description": "Biến ban công 4m² thành góc thư giãn với cây xanh và đèn dây.",
+    "image": "/images/articles/sub-3.jpg",
+    "images": ["/images/articles/sub-3.jpg"],
+    "author": "Tuấn Kiệt",
+    "authorAvatar": "",
+    "likes": 76,
+    "room": "balcony",
+    "style": "se-asia",
+    "date": "2026-06-09"
+  }
+]

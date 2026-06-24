@@ -1,0 +1,13 @@
+[
+  {"id": "se-asia", "name": "东南亚现代", "nameEn": "Modern SE Asia", "nameZh": "东南亚现代", "color": "#2D5A3D", "icon": "🌿", "type": "style"},
+  {"id": "french", "name": "法式殖民", "nameEn": "French Colonial", "nameZh": "法式殖民", "color": "#C4A35A", "icon": "🏰", "type": "style"},
+  {"id": "minimalist", "name": "极简主义", "nameEn": "Minimalist", "nameZh": "极简主义", "color": "#6B7280", "icon": "◻️", "type": "style"},
+  {"id": "scandinavian", "name": "北欧风格", "nameEn": "Scandinavian", "nameZh": "北欧风格", "color": "#94A3B8", "icon": "❄️", "type": "style"},
+  {"id": "industrial", "name": "工业风格", "nameEn": "Industrial", "nameZh": "工业风格", "color": "#78716C", "icon": "🔧", "type": "style"},
+  {"id": "japanese", "name": "日式和风", "nameEn": "Japanese", "nameZh": "日式和风", "color": "#92400E", "icon": "🎋", "type": "style"},
+  {"id": "bohemian", "name": "波西米亚", "nameEn": "Bohemian", "nameZh": "波西米亚", "color": "#B45309", "icon": "🌈", "type": "style"},
+  {"id": "tips", "name": "避坑指南", "nameEn": "Tips & Warnings", "nameZh": "避坑指南", "color": "#DC2626", "icon": "⚠️", "type": "content"},
+  {"id": "budget", "name": "省钱策略", "nameEn": "Budget Tips", "nameZh": "省钱策略", "color": "#059669", "icon": "💰", "type": "content"},
+  {"id": "user-submitted", "name": "用户投稿", "nameEn": "User Submitted", "nameZh": "用户投稿", "color": "#7C3AED", "icon": "👤", "type": "source"},
+  {"id": "tuscan", "name": "托斯卡纳", "nameEn": "Tuscan", "nameZh": "托斯卡纳", "color": "#B45309", "icon": "🌻", "type": "style"}
+]

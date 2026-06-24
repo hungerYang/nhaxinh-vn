@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Sitemap: https://nhaxinh.vn/sitemap.xml
+
+User-agent: *
+Disallow: /api/
+Disallow: /_next/

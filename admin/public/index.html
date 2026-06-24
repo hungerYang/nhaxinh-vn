@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NhaXinh.vn 后台管理</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: '#2D5A3D',
+              'green-light': '#3A7A52',
+              'green-dark': '#1E3D2A',
+              beige: '#F5F0E8',
+              'beige-dark': '#E8E0D0',
+              gold: '#C4A35A',
+              'gold-light': '#D4B76A',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    .toast-enter { animation: slideIn 0.3s ease-out; }
+    .toast-exit { animation: slideOut 0.3s ease-in forwards; }
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes slideOut {
+      from { transform: translateX(0); opacity: 1; }
+      to { transform: translateX(100%); opacity: 0; }
+    }
+    .sidebar-item.active {
+      background-color: rgba(45, 90, 61, 0.15);
+      border-right: 3px solid #2D5A3D;
+      color: #2D5A3D;
+      font-weight: 600;
+    }
+    .modal-overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(2px);
+    }
+    .spinner {
+      border: 3px solid #E8E0D0;
+      border-top: 3px solid #2D5A3D;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      animation: spin 0.8s linear infinite;
+      display: inline-block;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .btn-loading {
+      opacity: 0.7;
+      pointer-events: none;
+    }
+    table th { position: sticky; top: 0; z-index: 1; }
+  </style>
+</head>
+<body class="bg-brand-beige min-h-screen">
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="fixed top-4 right-4 z-[9999] flex flex-col gap-2"></div>
+
+  <!-- Login Page -->
+  <div id="login-page" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-brand-green-dark via-brand-green to-brand-green-light">
+    <div class="bg-white rounded-2xl shadow-2xl p-10 w-full max-w-md mx-4">
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-green/10 mb-4">
+          <svg class="w-8 h-8 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+          </svg>
+        </div>
+        <h1 class="text-2xl font-bold text-gray-800">NhàXinh.vn 后台管理</h1>
+        <p class="text-gray-500 mt-2">请输入管理密码以登录</p>
+      </div>
+      <form id="login-form" class="space-y-5">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">管理密码</label>
+          <input type="password" id="login-password" placeholder="请输入密码"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition-all text-gray-800"
+            required>
+        </div>
+        <button type="submit" id="login-btn"
+          class="w-full py-3 bg-brand-green text-white font-semibold rounded-lg hover:bg-brand-green-light transition-colors flex items-center justify-center gap-2">
+          <span id="login-btn-text">登 录</span>
+          <span id="login-btn-spinner" class="spinner hidden"></span>
+        </button>
+        <p id="login-error" class="text-red-500 text-sm text-center hidden"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin Dashboard -->
+  <div id="admin-page" class="hidden min-h-screen flex">
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="w-60 bg-white shadow-lg flex flex-col fixed h-full z-30 transition-transform duration-300">
+      <div class="p-5 border-b border-gray-100">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-brand-green flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            </svg>
+          </div>
+          <div>
+            <h2 class="font-bold text-gray-800 text-sm">NhàXinh.vn</h2>
+            <p class="text-xs text-gray-400">后台管理系统</p>
+          </div>
+        </div>
+      </div>
+      <nav class="flex-1 py-4">
+        <button onclick="navigateTo('dashboard')" data-nav="dashboard"
+          class="sidebar-item active w-full text-left px-5 py-3 text-sm text-gray-600 hover:bg-brand-green/5 transition-colors flex items-center gap-3">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+          仪表盘
+        </button>
+        <button onclick="navigateTo('articles')" data-nav="articles"
+          class="sidebar-item w-full text-left px-5 py-3 text-sm text-gray-600 hover:bg-brand-green/5 transition-colors flex items-center gap-3">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+          文章管理
+        </button>
+        <button onclick="navigateTo('submissions')" data-nav="submissions"
+          class="sidebar-item w-full text-left px-5 py-3 text-sm text-gray-600 hover:bg-brand-green/5 transition-colors flex items-center gap-3">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          用户投稿
+        </button>
+        <button onclick="navigateTo('products')" data-nav="products"
+          class="sidebar-item w-full text-left px-5 py-3 text-sm text-gray-600 hover:bg-brand-green/5 transition-colors flex items-center gap-3">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+          商品管理
+        </button>
+        <button onclick="navigateTo('rebuild')" data-nav="rebuild"
+          class="sidebar-item w-full text-left px-5 py-3 text-sm text-gray-600 hover:bg-brand-green/5 transition-colors flex items-center gap-3">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          重新构建
+        </button>
+        <button onclick="navigateTo('styles')" data-nav="styles"
+          class="sidebar-item w-full text-left px-5 py-3 text-sm text-gray-600 hover:bg-brand-green/5 transition-colors flex items-center gap-3">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+          风格管理
+        </button>
+      </nav>
+      <div class="p-4 border-t border-gray-100">
+        <button onclick="logout()" class="w-full text-left px-3 py-2 text-sm text-gray-500 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors flex items-center gap-3">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+          退出登录
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 ml-60">
+      <!-- Top Bar -->
+      <header class="bg-white shadow-sm border-b border-gray-100 px-6 py-4 flex items-center justify-between sticky top-0 z-20">
+        <div>
+          <h1 class="text-lg font-bold text-gray-800">NhàXinh.vn 后台管理</h1>
+          <p class="text-xs text-gray-400" id="current-page-label">仪表盘</p>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="text-sm text-gray-500" id="current-time"></span>
+          <button onclick="logout()" class="px-4 py-2 text-sm bg-gray-100 text-gray-600 rounded-lg hover:bg-red-50 hover:text-red-600 transition-colors">
+            退出
+          </button>
+        </div>
+      </header>
+
+      <!-- Content Area -->
+      <div class="p-6">
+
+        <!-- Dashboard Section -->
+        <section id="section-dashboard" class="page-section">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm text-gray-500">文章总数</p>
+                  <p class="text-3xl font-bold text-gray-800 mt-1" id="stat-articles">-</p>
+                </div>
+                <div class="w-12 h-12 rounded-xl bg-brand-green/10 flex items-center justify-center">
+                  <svg class="w-6 h-6 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm text-gray-500">投稿总数</p>
+                  <p class="text-3xl font-bold text-gray-800 mt-1" id="stat-submissions">-</p>
+                </div>
+                <div class="w-12 h-12 rounded-xl bg-brand-gold/10 flex items-center justify-center">
+                  <svg class="w-6 h-6 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm text-gray-500">商品总数</p>
+                  <p class="text-3xl font-bold text-gray-800 mt-1" id="stat-products">-</p>
+                </div>
+                <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center">
+                  <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+            <h2 class="text-lg font-semibold text-gray-800 mb-4">快速操作</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <button onclick="navigateTo('articles'); setTimeout(() => openArticleModal(), 100)"
+                class="p-4 rounded-lg border border-gray-200 hover:border-brand-green hover:bg-brand-green/5 transition-colors text-center">
+                <svg class="w-8 h-8 text-brand-green mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                <p class="text-sm text-gray-600">添加文章</p>
+              </button>
+              <button onclick="navigateTo('submissions'); setTimeout(() => openSubmissionModal(), 100)"
+                class="p-4 rounded-lg border border-gray-200 hover:border-brand-gold hover:bg-brand-gold/5 transition-colors text-center">
+                <svg class="w-8 h-8 text-brand-gold mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                <p class="text-sm text-gray-600">添加投稿</p>
+              </button>
+              <button onclick="navigateTo('products'); setTimeout(() => openProductModal(), 100)"
+                class="p-4 rounded-lg border border-gray-200 hover:border-blue-400 hover:bg-blue-50 transition-colors text-center">
+                <svg class="w-8 h-8 text-blue-500 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                <p class="text-sm text-gray-600">添加商品</p>
+              </button>
+              <button onclick="navigateTo('rebuild')"
+                class="p-4 rounded-lg border border-gray-200 hover:border-purple-400 hover:bg-purple-50 transition-colors text-center">
+                <svg class="w-8 h-8 text-purple-500 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                <p class="text-sm text-gray-600">重新构建</p>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Articles Section -->
+        <section id="section-articles" class="page-section hidden">
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-xl font-bold text-gray-800">文章管理</h2>
+            <button onclick="openArticleModal()" class="px-4 py-2 bg-brand-green text-white rounded-lg hover:bg-brand-green-light transition-colors flex items-center gap-2 text-sm font-medium">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+              添加文章
+            </button>
+          </div>
+          <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+            <div class="overflow-x-auto">
+              <table class="w-full">
+                <thead class="bg-gray-50 border-b border-gray-100">
+                  <tr>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">ID</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">标题</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">风格</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">房间</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">日期</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">操作</th>
+                  </tr>
+                </thead>
+                <tbody id="articles-table-body" class="divide-y divide-gray-100">
+                  <tr><td colspan="6" class="px-4 py-8 text-center text-gray-400"><span class="spinner mr-2"></span>加载中...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Submissions Section -->
+        <section id="section-submissions" class="page-section hidden">
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-xl font-bold text-gray-800">用户投稿</h2>
+            <button onclick="openSubmissionModal()" class="px-4 py-2 bg-brand-gold text-white rounded-lg hover:bg-brand-gold-light transition-colors flex items-center gap-2 text-sm font-medium">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+              添加投稿
+            </button>
+          </div>
+          <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+            <div class="overflow-x-auto">
+              <table class="w-full">
+                <thead class="bg-gray-50 border-b border-gray-100">
+                  <tr>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">ID</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">标题</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">作者</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">风格</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">日期</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">操作</th>
+                  </tr>
+                </thead>
+                <tbody id="submissions-table-body" class="divide-y divide-gray-100">
+                  <tr><td colspan="6" class="px-4 py-8 text-center text-gray-400"><span class="spinner mr-2"></span>加载中...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="section-products" class="page-section hidden">
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-xl font-bold text-gray-800">商品管理</h2>
+            <button onclick="openProductModal()" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors flex items-center gap-2 text-sm font-medium">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+              添加商品
+            </button>
+          </div>
+          <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+            <div class="overflow-x-auto">
+              <table class="w-full">
+                <thead class="bg-gray-50 border-b border-gray-100">
+                  <tr>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">ID</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">名称</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">分类</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">价格</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">折扣</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">平台</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">联盟</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">操作</th>
+                  </tr>
+                </thead>
+                <tbody id="products-table-body" class="divide-y divide-gray-100">
+                  <tr><td colspan="8" class="px-4 py-8 text-center text-gray-400"><span class="spinner mr-2"></span>加载中...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Rebuild Section -->
+        <section id="section-rebuild" class="page-section hidden">
+          <div class="max-w-2xl mx-auto">
+            <div class="bg-white rounded-xl shadow-sm p-8 border border-gray-100">
+              <div class="text-center mb-8">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-purple-50 mb-4">
+                  <svg class="w-8 h-8 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                </div>
+                <h2 class="text-xl font-bold text-gray-800">重新构建网站</h2>
+                <p class="text-gray-500 mt-2 text-sm">此操作将重新生成静态网站文件，包括所有文章、投稿和商品数据。</p>
+              </div>
+              <div class="space-y-4">
+                <button onclick="triggerRebuild()" id="rebuild-btn"
+                  class="w-full py-3 bg-purple-500 text-white font-semibold rounded-lg hover:bg-purple-600 transition-colors flex items-center justify-center gap-2">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                  <span id="rebuild-btn-text">重新构建网站</span>
+                  <span id="rebuild-btn-spinner" class="spinner hidden" style="border-color: rgba(255,255,255,0.3); border-top-color: white;"></span>
+                </button>
+                <div id="rebuild-status" class="hidden">
+                  <div class="bg-gray-50 rounded-lg p-4">
+                    <p class="text-sm font-medium text-gray-700 mb-2">构建状态</p>
+                    <div id="rebuild-status-text" class="text-sm text-gray-600"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Styles Section -->
+        <section id="section-styles" class="page-section hidden">
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-xl font-bold text-gray-800">风格管理</h2>
+            <button onclick="openStyleModal()" class="px-4 py-2 bg-[#7C3AED] text-white rounded-lg hover:bg-[#6D28D9] transition-colors flex items-center gap-2 text-sm font-medium">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+              添加风格
+            </button>
+          </div>
+          <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+            <div class="overflow-x-auto">
+              <table class="w-full">
+                <thead class="bg-gray-50 border-b border-gray-100">
+                  <tr>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">图标</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">ID</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">名称 (VI)</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">名称 (EN)</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">名称 (ZH)</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">颜色</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">类型</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">操作</th>
+                  </tr>
+                </thead>
+                <tbody id="styles-table-body" class="divide-y divide-gray-100">
+                  <tr><td colspan="8" class="px-4 py-8 text-center text-gray-400"><span class="spinner mr-2"></span>加载中...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal Overlay -->
+  <div id="modal-overlay" class="hidden fixed inset-0 modal-overlay z-50 flex items-center justify-center p-4">
+    <div id="modal-content" class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between p-6 border-b border-gray-100">
+        <h3 id="modal-title" class="text-lg font-bold text-gray-800"></h3>
+        <button onclick="closeModal()" class="w-8 h-8 rounded-lg hover:bg-gray-100 flex items-center justify-center transition-colors">
+          <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div id="modal-body" class="p-6"></div>
+      <div class="flex items-center justify-end gap-3 p-6 border-t border-gray-100">
+        <button onclick="closeModal()" class="px-4 py-2 text-sm text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">取消</button>
+        <button id="modal-save-btn" class="px-6 py-2 text-sm text-white bg-brand-green rounded-lg hover:bg-brand-green-light transition-colors font-medium">保存</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ============ State ============
+    let currentPage = 'dashboard';
+    let token = localStorage.getItem('nhaxinh_token');
+    let articles = [];
+    let submissions = [];
+    let products = [];
+    let editingId = null;
+
+    // ============ Helpers ============
+    const API = window.location.origin;
+    const headers = () => ({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token
+    });
+
+    function formatPrice(n) {
+      if (!n) return '-';
+      return new Intl.NumberFormat('vi-VN').format(n) + ' VND';
+    }
+
+    function formatDate(d) {
+      if (!d) return '-';
+      return d;
+    }
+
+    const styleMap = { 'se-asia': '东南亚风格', 'french': '法式风格' };
+    const roomMap = {
+      'living': '客厅', 'bedroom': '卧室', 'kitchen': '厨房',
+      'dining': '餐厅', 'balcony': '阳台', 'study': '书房',
+      'bathroom': '浴室', 'entryway': '玄关', 'all': '全部'
+    };
+    const categoryMap = { 'furniture': '家具', 'decor': '装饰', 'materials': '材料', 'lighting': '灯具' };
+    const platformColorMap = {
+      'shopee': { label: 'Shopee', bg: 'rgba(238,77,45,0.1)', text: '#EE4D2D' },
+      'lazada': { label: 'Lazada', bg: 'rgba(15,20,109,0.1)', text: '#0F146D' },
+      'tiktok': { label: 'TikTok Shop', bg: 'rgba(0,0,0,0.08)', text: '#000000' },
+      'other': { label: '其他', bg: '#f3f4f6', text: '#374151' },
+    };
+
+    // ============ Toast ============
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      const bgColor = type === 'success' ? 'bg-brand-green' : type === 'error' ? 'bg-red-500' : 'bg-brand-gold';
+      const icon = type === 'success'
+        ? '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>'
+        : type === 'error'
+        ? '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>'
+        : '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>';
+      toast.className = `${bgColor} text-white px-4 py-3 rounded-lg shadow-lg flex items-center gap-2 text-sm toast-enter min-w-[280px]`;
+      toast.innerHTML = `${icon}<span>${message}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.classList.remove('toast-enter');
+        toast.classList.add('toast-exit');
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+
+    // ============ Auth ============
+    function checkAuth() {
+      if (token) {
+        showAdmin();
+      } else {
+        showLogin();
+      }
+    }
+
+    function showLogin() {
+      document.getElementById('login-page').classList.remove('hidden');
+      document.getElementById('admin-page').classList.add('hidden');
+    }
+
+    function showAdmin() {
+      document.getElementById('login-page').classList.add('hidden');
+      document.getElementById('admin-page').classList.remove('hidden');
+      document.getElementById('admin-page').classList.add('flex');
+      loadDashboardStats();
+    }
+
+    function logout() {
+      token = null;
+      localStorage.removeItem('nhaxinh_token');
+      showLogin();
+      showToast('已退出登录', 'info');
+    }
+
+    // ============ Login ============
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const password = document.getElementById('login-password').value.trim();
+      if (!password) return;
+
+      const btn = document.getElementById('login-btn');
+      const btnText = document.getElementById('login-btn-text');
+      const btnSpinner = document.getElementById('login-btn-spinner');
+      const errorEl = document.getElementById('login-error');
+
+      btn.classList.add('btn-loading');
+      btnText.textContent = '登录中...';
+      btnSpinner.classList.remove('hidden');
+      errorEl.classList.add('hidden');
+
+      try {
+        const res = await fetch(API + '/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password })
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.message || '登录失败');
+        token = data.token;
+        localStorage.setItem('nhaxinh_token', data.token);
+        showToast('登录成功');
+        showAdmin();
+        document.getElementById('login-password').value = '';
+      } catch (err) {
+        errorEl.textContent = err.message || '登录失败，请重试';
+        errorEl.classList.remove('hidden');
+      } finally {
+        btn.classList.remove('btn-loading');
+        btnText.textContent = '登 录';
+        btnSpinner.classList.add('hidden');
+      }
+    });
+
+    // ============ Navigation ============
+    function navigateTo(page) {
+      currentPage = page;
+      document.querySelectorAll('.page-section').forEach(s => s.classList.add('hidden'));
+      document.getElementById('section-' + page).classList.remove('hidden');
+      document.querySelectorAll('.sidebar-item').forEach(item => item.classList.remove('active'));
+      document.querySelector(`[data-nav="${page}"]`)?.classList.add('active');
+
+      const labels = {
+        dashboard: '仪表盘', articles: '文章管理',
+        submissions: '用户投稿', products: '商品管理', rebuild: '重新构建', styles: '风格管理'
+      };
+      document.getElementById('current-page-label').textContent = labels[page] || '';
+
+      // Load data for the page
+      if (page === 'dashboard') loadDashboardStats();
+      if (page === 'articles') loadArticles();
+      if (page === 'submissions') loadSubmissions();
+      if (page === 'products') loadProducts();
+      if (page === 'styles') loadStyles();
+    }
+
+    // ============ API Calls ============
+    async function apiGet(url) {
+      const res = await fetch(API + url, { headers: headers() });
+      if (res.status === 401) { logout(); throw new Error('未授权'); }
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || '请求失败');
+      return data;
+    }
+
+    async function apiPost(url, body) {
+      const res = await fetch(API + url, {
+        method: 'POST', headers: headers(), body: JSON.stringify(body)
+      });
+      if (res.status === 401) { logout(); throw new Error('未授权'); }
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || '请求失败');
+      return data;
+    }
+
+    async function apiPut(url, body) {
+      const res = await fetch(API + url, {
+        method: 'PUT', headers: headers(), body: JSON.stringify(body)
+      });
+      if (res.status === 401) { logout(); throw new Error('未授权'); }
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || '请求失败');
+      return data;
+    }
+
+    async function apiDelete(url) {
+      const res = await fetch(API + url, { method: 'DELETE', headers: headers() });
+      if (res.status === 401) { logout(); throw new Error('未授权'); }
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || '请求失败');
+      return data;
+    }
+
+    async function apiUpload(file) {
+      const formData = new FormData();
+      formData.append('image', file);
+      const res = await fetch(API + '/api/upload', {
+        method: 'POST',
+        headers: { 'Authorization': 'Bearer ' + token },
+        body: formData
+      });
+      if (res.status === 401) { logout(); throw new Error('未授权'); }
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || '上传失败');
+      return data;
+    }
+
+    function createImageUploadField(inputId, previewId, currentUrl) {
+      const currentImg = currentUrl || '';
+      return `
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">图片</label>
+          <div class="flex items-center gap-3 mb-2">
+            <label class="inline-flex items-center gap-1.5 px-3 py-2 bg-brand-green text-white text-sm rounded-lg hover:bg-brand-green-light transition-colors cursor-pointer">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              上传图片
+              <input type="file" accept="image/jpeg,image/jpg,image/png,image/gif,image/webp" class="hidden" onchange="handleImageUpload(this, '${inputId}', '${previewId}')">
+            </label>
+            <span class="text-xs text-gray-400">JPG, PNG, GIF, WebP (最大5MB)</span>
+          </div>
+          <div id="${previewId}" class="mb-2">
+            ${currentImg ? `<img src="${escapeAttr(currentImg)}" class="w-32 h-24 object-cover rounded-lg border border-gray-200" onerror="this.style.display='none'">` : ''}
+          </div>
+          <input type="text" id="${inputId}" value="${escapeAttr(currentImg)}" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none text-sm" placeholder="图片URL（外部图片可直接填写）">
+        </div>
+      `;
+    }
+
+    async function handleImageUpload(fileInput, inputId, previewId) {
+      const file = fileInput.files[0];
+      if (!file) return;
+      if (file.size > 5 * 1024 * 1024) {
+        showToast('文件过大，最大5MB', 'error');
+        return;
+      }
+      try {
+        const data = await apiUpload(file);
+        document.getElementById(inputId).value = data.url;
+        document.getElementById(previewId).innerHTML = `<img src="${escapeAttr(data.url)}" class="w-32 h-24 object-cover rounded-lg border border-gray-200">`;
+        showToast('图片上传成功');
+      } catch (e) {
+        showToast('上传失败: ' + e.message, 'error');
+      }
+      fileInput.value = '';
+    }
+
+    function createMultiImageUploadField(containerId, currentImages) {
+      const imgs = Array.isArray(currentImages) ? currentImages : (currentImages ? [currentImages] : []);
+      return `
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">图片（最多5张）</label>
+          <div class="flex items-center gap-3 mb-2">
+            <label class="inline-flex items-center gap-1.5 px-3 py-2 bg-brand-green text-white text-sm rounded-lg hover:bg-brand-green-light transition-colors cursor-pointer">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              上传图片
+              <input type="file" accept="image/jpeg,image/jpg,image/png,image/gif,image/webp" class="hidden" onchange="handleMultiImageUpload(this, '${containerId}')">
+            </label>
+            <span class="text-xs text-gray-400">JPG, PNG, GIF, WebP (最大5MB)</span>
+          </div>
+          <div id="${containerId}" class="flex flex-wrap gap-2 mb-2">
+            ${imgs.map(img => `<div class="relative inline-block"><img src="${escapeAttr(img)}" class="w-24 h-20 object-cover rounded-lg border border-gray-200"><button type="button" onclick="removeMultiImage(this, '${containerId}')" class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white rounded-full text-xs flex items-center justify-center hover:bg-red-600">&times;</button></div>`).join('')}
+          </div>
+          <input type="hidden" id="${containerId}-data" value="${escapeAttr(imgs.join(','))}">
+        </div>
+      `;
+    }
+
+    async function handleMultiImageUpload(fileInput, containerId) {
+      const file = fileInput.files[0];
+      if (!file) return;
+      if (file.size > 5 * 1024 * 1024) {
+        showToast('文件过大，最大5MB', 'error');
+        return;
+      }
+      const hiddenInput = document.getElementById(containerId + '-data');
+      const currentImages = hiddenInput.value ? hiddenInput.value.split(',').filter(Boolean) : [];
+      if (currentImages.length >= 5) {
+        showToast('最多上传5张图片', 'error');
+        return;
+      }
+      try {
+        const data = await apiUpload(file);
+        currentImages.push(data.url);
+        hiddenInput.value = currentImages.join(',');
+        const container = document.getElementById(containerId);
+        const imgEl = document.createElement('div');
+        imgEl.className = 'relative inline-block';
+        imgEl.innerHTML = `<img src="${escapeAttr(data.url)}" class="w-24 h-20 object-cover rounded-lg border border-gray-200"><button type="button" onclick="removeMultiImage(this, '${containerId}')" class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white rounded-full text-xs flex items-center justify-center hover:bg-red-600">&times;</button>`;
+        container.appendChild(imgEl);
+        showToast('图片上传成功');
+      } catch (e) {
+        showToast('上传失败: ' + e.message, 'error');
+      }
+      fileInput.value = '';
+    }
+
+    function removeMultiImage(btn, containerId) {
+      const imgEl = btn.parentElement;
+      const imgSrc = imgEl.querySelector('img').src;
+      const hiddenInput = document.getElementById(containerId + '-data');
+      let currentImages = hiddenInput.value ? hiddenInput.value.split(',').filter(Boolean) : [];
+      // Remove the matching URL
+      const imgPath = new URL(imgSrc, window.location.origin).pathname;
+      currentImages = currentImages.filter(url => url !== imgPath && url !== imgSrc);
+      hiddenInput.value = currentImages.join(',');
+      imgEl.remove();
+    }
+
+    // ============ Dashboard Stats ============
+    async function loadDashboardStats() {
+      try {
+        const [arts, subs, prods] = await Promise.all([
+          apiGet('/api/articles').catch(() => []),
+          apiGet('/api/submissions').catch(() => []),
+          apiGet('/api/products').catch(() => [])
+        ]);
+        document.getElementById('stat-articles').textContent = Array.isArray(arts) ? arts.length : (arts.length || 0);
+        document.getElementById('stat-submissions').textContent = Array.isArray(subs) ? subs.length : (subs.length || 0);
+        document.getElementById('stat-products').textContent = Array.isArray(prods) ? prods.length : (prods.length || 0);
+      } catch (e) {
+        document.getElementById('stat-articles').textContent = '0';
+        document.getElementById('stat-submissions').textContent = '0';
+        document.getElementById('stat-products').textContent = '0';
+      }
+    }
+
+    // ============ Articles ============
+    async function loadArticles() {
+      const tbody = document.getElementById('articles-table-body');
+      tbody.innerHTML = '<tr><td colspan="6" class="px-4 py-8 text-center text-gray-400"><span class="spinner mr-2"></span>加载中...</td></tr>';
+      try {
+        articles = await apiGet('/api/articles');
+        if (!articles.length) {
+          tbody.innerHTML = '<tr><td colspan="6" class="px-4 py-8 text-center text-gray-400">暂无文章</td></tr>';
+          return;
+        }
+        tbody.innerHTML = articles.map(a => `
+          <tr class="hover:bg-gray-50 transition-colors">
+            <td class="px-4 py-3 text-sm text-gray-500 font-mono">${a.id}</td>
+            <td class="px-4 py-3 text-sm text-gray-800 font-medium max-w-xs truncate">${escapeHtml(a.title)}</td>
+            <td class="px-4 py-3 text-sm text-gray-600">${styleMap[a.style] || a.style || '-'}</td>
+            <td class="px-4 py-3 text-sm text-gray-600">${roomMap[a.room] || a.room || '-'}</td>
+            <td class="px-4 py-3 text-sm text-gray-500">${formatDate(a.date)}</td>
+            <td class="px-4 py-3 text-sm">
+              <button onclick="editArticle('${a.id}')" class="text-brand-green hover:text-brand-green-light mr-3 font-medium">编辑</button>
+              <button onclick="deleteArticle('${a.id}')" class="text-red-500 hover:text-red-600 font-medium">删除</button>
+            </td>
+          </tr>
+        `).join('');
+      } catch (e) {
+        tbody.innerHTML = `<tr><td colspan="6" class="px-4 py-8 text-center text-red-400">加载失败: ${escapeHtml(e.message)}</td></tr>`;
+      }
+    }
+
+    function openArticleModal(data = null) {
+      editingId = data ? data.id : null;
+      document.getElementById('modal-title').textContent = data ? '编辑文章' : '添加文章';
+      document.getElementById('modal-body').innerHTML = `
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">标题 *</label>
+            <input type="text" id="art-title" value="${escapeAttr(data?.title || '')}" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none text-sm" required>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">描述</label>
+            <textarea id="art-description" rows="2" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none text-sm">${escapeHtml(data?.description || '')}</textarea>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">正文</label>
+            <textarea id="art-content" rows="6" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none text-sm font-mono">${escapeHtml(data?.content || '')}</textarea>
+          </div>
+          <div>
+            ${createImageUploadField('art-image', 'art-image-preview', data?.image || '')}
+          </div>
+          <div>
+            ${createMultiImageUploadField('art-images', data?.images || [])}
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">风格</label>
+              <select id="art-style" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none text-sm">
+                <option value="se-asia" ${data?.style === 'se-asia' ? 'selected' : ''}>东南亚风格</option>
+                <option value="french" ${data?.style === 'french' ? 'selected' : ''}>法式风格</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">房间</label>
+              <select id="art-room" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none text-sm">
+                <option value="living" ${data?.room === 'living' ? 'selected' : ''}>客厅</option>
+                <option value="bedroom" ${data?.room === 'bedroom' ? 'selected' : ''}>卧室</option>
+                <option value="kitchen" ${data?.room === 'kitchen' ? 'selected' : ''}>厨房</option>
+                <option value="dining" ${data?.room === 'dining' ? 'selected' : ''}>餐厅</option>
+                <option value="balcony" ${data?.room === 'balcony' ? 'selected' : ''}>阳台</option>
+                <option value="study" ${data?.room === 'study' ? 'selected' : ''}>书房</option>
+                <option value="bathroom" ${data?.room === 'bathroom' ? 'selected' : ''}>浴室</option>
+                <option value="entryway" ${data?.room === 'entryway' ? 'selected' : ''}>玄关</option>
+                <option value="all" ${data?.room === 'all' ? 'selected' : ''}>全部</option>
+              </select>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">作者</label>
+              <input type="text" id="art-author" value="${escapeAttr(data?.author || '')}" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none text-sm">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">阅读时长(分钟)</label>
+              <input type="number" id="art-readTime" value="${data?.readTime || 5}" min="1" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none text-sm">
+            </div>
+          </div>
+        </div>
+      `;
+      document.getElementById('modal-save-btn').onclick = saveArticle;
+      document.getElementById('modal-overlay').classList.remove('hidden');
+    }
+
+    function editArticle(id) {
+      const article = articles.find(a => a.id === id);
+      if (article) openArticleModal(article);
+    }
+
+    async function saveArticle() {
+      const artImagesData = document.getElementById('art-images-data');
+      const artImages = artImagesData && artImagesData.value ? artImagesData.value.split(',').filter(Boolean) : [];
+      const body = {
+        title: document.getElementById('art-title').value.trim(),
+        description: document.getElementById('art-description').value.trim(),
+        content: document.getElementById('art-content').value.trim(),
+        image: document.getElementById('art-image').value.trim(),
+        images: artImages,
+        style: document.getElementById('art-style').value,
+        room: document.getElementById('art-room').value,
+        author: document.getElementById('art-author').value.trim(),
+        readTime: parseInt(document.getElementById('art-readTime').value) || 5
+      };
+      if (!body.title) { showToast('请填写标题', 'error'); return; }
+
+      const btn = document.getElementById('modal-save-btn');
+      btn.classList.add('btn-loading');
+      try {
+        if (editingId) {
+          await apiPut('/api/articles/' + editingId, body);
+          showToast('文章已更新');
+        } else {
+          await apiPost('/api/articles', body);
+          showToast('文章已创建');
+        }
+        closeModal();
+        loadArticles();
+      } catch (e) {
+        showToast(e.message, 'error');
+      } finally {
+        btn.classList.remove('btn-loading');
+      }
+    }
+
+    async function deleteArticle(id) {
+      if (!confirm('确定要删除这篇文章吗？此操作不可撤销。')) return;
+      try {
+        await apiDelete('/api/articles/' + id);
+        showToast('文章已删除');
+        loadArticles();
+      } catch (e) {
+        showToast(e.message, 'error');
+      }
+    }
+
+    // ============ Submissions ============
+    async function loadSubmissions() {
+      const tbody = document.getElementById('submissions-table-body');
+      tbody.innerHTML = '<tr><td colspan="6" class="px-4 py-8 text-center text-gray-400"><span class="spinner mr-2"></span>加载中...</td></tr>';
+      try {
+        submissions = await apiGet('/api/submissions');
+        if (!submissions.length) {
+          tbody.innerHTML = '<tr><td colspan="6" class="px-4 py-8 text-center text-gray-400">暂无投稿</td></tr>';
+          return;
+        }
+        tbody.innerHTML = submissions.map(s => `
+          <tr class="hover:bg-gray-50 transition-colors">
+            <td class="px-4 py-3 text-sm text-gray-500 font-mono">${s.id}</td>
+            <td class="px-4 py-3 text-sm text-gray-800 font-medium max-w-xs truncate">${escapeHtml(s.title)}</td>
+            <td class="px-4 py-3 text-sm text-gray-600">${escapeHtml(s.author || '-')}</td>
+            <td class="px-4 py-3 text-sm text-gray-600">${styleMap[s.style] || s.style || '-'}</td>
+            <td class="px-4 py-3 text-sm text-gray-500">${formatDate(s.date)}</td>
+            <td class="px-4 py-3 text-sm">
+              <button onclick="editSubmission('${s.id}')" class="text-brand-gold hover:text-brand-gold-light mr-3 font-medium">编辑</button>
+              <button onclick="deleteSubmission('${s.id}')" class="text-red-500 hover:text-red-600 font-medium">删除</button>
+            </td>
+          </tr>
+        `).join('');
+      } catch (e) {
+        tbody.innerHTML = `<tr><td colspan="6" class="px-4 py-8 text-center text-red-400">加载失败: ${escapeHtml(e.message)}</td></tr>`;
+      }
+    }
+
+    function openSubmissionModal(data = null) {
+      editingId = data ? data.id : null;
+      document.getElementById('modal-title').textContent = data ? '编辑投稿' : '添加投稿';
+      document.getElementById('modal-body').innerHTML = `
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">标题 *</label>
+            <input type="text" id="sub-title" value="${escapeAttr(data?.title || '')}" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-gold focus:border-brand-gold outline-none text-sm" required>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">描述</label>
+            <textarea id="sub-description" rows="2" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-gold focus:border-brand-gold outline-none text-sm">${escapeHtml(data?.description || '')}</textarea>
+          </div>
+          <div>
+            ${createImageUploadField('sub-image', 'sub-image-preview', data?.image || '')}
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">作者</label>
+              <input type="text" id="sub-author" value="${escapeAttr(data?.author || '')}" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-gold focus:border-brand-gold outline-none text-sm">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">点赞数</label>
+              <input type="number" id="sub-likes" value="${data?.likes || 0}" min="0" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-gold focus:border-brand-gold outline-none text-sm">
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">风格</label>
+              <select id="sub-style" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-gold focus:border-brand-gold outline-none text-sm">
+                <option value="se-asia" ${data?.style === 'se-asia' ? 'selected' : ''}>东南亚风格</option>
+                <option value="french" ${data?.style === 'french' ? 'selected' : ''}>法式风格</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">房间</label>
+              <select id="sub-room" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-gold focus:border-brand-gold outline-none text-sm">
+                <option value="living" ${data?.room === 'living' ? 'selected' : ''}>客厅</option>
+                <option value="bedroom" ${data?.room === 'bedroom' ? 'selected' : ''}>卧室</option>
+                <option value="kitchen" ${data?.room === 'kitchen' ? 'selected' : ''}>厨房</option>
+                <option value="dining" ${data?.room === 'dining' ? 'selected' : ''}>餐厅</option>
+                <option value="balcony" ${data?.room === 'balcony' ? 'selected' : ''}>阳台</option>
+                <option value="study" ${data?.room === 'study' ? 'selected' : ''}>书房</option>
+                <option value="bathroom" ${data?.room === 'bathroom' ? 'selected' : ''}>浴室</option>
+                <option value="entryway" ${data?.room === 'entryway' ? 'selected' : ''}>玄关</option>
+                <option value="all" ${data?.room === 'all' ? 'selected' : ''}>全部</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      `;
+      document.getElementById('modal-save-btn').onclick = saveSubmission;
+      document.getElementById('modal-save-btn').className = 'px-6 py-2 text-sm text-white bg-brand-gold rounded-lg hover:bg-brand-gold-light transition-colors font-medium';
+      document.getElementById('modal-overlay').classList.remove('hidden');
+    }
+
+    function editSubmission(id) {
+      const sub = submissions.find(s => s.id === id);
+      if (sub) openSubmissionModal(sub);
+    }
+
+    async function saveSubmission() {
+      const body = {
+        title: document.getElementById('sub-title').value.trim(),
+        description: document.getElementById('sub-description').value.trim(),
+        image: document.getElementById('sub-image').value.trim(),
+        author: document.getElementById('sub-author').value.trim(),
+        likes: parseInt(document.getElementById('sub-likes').value) || 0,
+        style: document.getElementById('sub-style').value,
+        room: document.getElementById('sub-room').value
+      };
+      if (!body.title) { showToast('请填写标题', 'error'); return; }
+
+      const btn = document.getElementById('modal-save-btn');
+      btn.classList.add('btn-loading');
+      try {
+        if (editingId) {
+          await apiPut('/api/submissions/' + editingId, body);
+          showToast('投稿已更新');
+        } else {
+          await apiPost('/api/submissions', body);
+          showToast('投稿已创建');
+        }
+        closeModal();
+        loadSubmissions();
+      } catch (e) {
+        showToast(e.message, 'error');
+      } finally {
+        btn.classList.remove('btn-loading');
+      }
+    }
+
+    async function deleteSubmission(id) {
+      if (!confirm('确定要删除这条投稿吗？此操作不可撤销。')) return;
+      try {
+        await apiDelete('/api/submissions/' + id);
+        showToast('投稿已删除');
+        loadSubmissions();
+      } catch (e) {
+        showToast(e.message, 'error');
+      }
+    }
+
+    // ============ Products ============
+    async function loadProducts() {
+      const tbody = document.getElementById('products-table-body');
+      tbody.innerHTML = '<tr><td colspan="8" class="px-4 py-8 text-center text-gray-400"><span class="spinner mr-2"></span>加载中...</td></tr>';
+      try {
+        products = await apiGet('/api/products');
+        if (!products.length) {
+          tbody.innerHTML = '<tr><td colspan="8" class="px-4 py-8 text-center text-gray-400">暂无商品</td></tr>';
+          return;
+        }
+        tbody.innerHTML = products.map(p => `
+          <tr class="hover:bg-gray-50 transition-colors">
+            <td class="px-4 py-3 text-sm text-gray-500 font-mono">${p.id}</td>
+            <td class="px-4 py-3 text-sm text-gray-800 font-medium max-w-xs truncate">${escapeHtml(p.name)}</td>
+            <td class="px-4 py-3 text-sm text-gray-600">${categoryMap[p.category] || p.category || '-'}</td>
+            <td class="px-4 py-3 text-sm text-gray-600">${formatPrice(p.price)}</td>
+            <td class="px-4 py-3 text-sm">
+              ${p.discount ? `<span class="inline-block px-2 py-0.5 bg-red-50 text-red-600 rounded text-xs font-medium">-${p.discount}%</span>` : '-'}
+            </td>
+            <td class="px-4 py-3 text-sm">
+              ${p.platform ? `<span class="inline-block px-2 py-0.5 rounded text-xs font-medium" style="background-color: ${platformColorMap[p.platform]?.bg || '#f3f4f6'}; color: ${platformColorMap[p.platform]?.text || '#374151'}">${platformColorMap[p.platform]?.label || p.platform}</span>` : '-'}
+            </td>
+            <td class="px-4 py-3 text-sm">
+              ${p.affiliateEnabled ? '<span class="inline-block px-2 py-0.5 bg-green-50 text-green-600 rounded text-xs font-medium">已启用</span>' : '<span class="inline-block px-2 py-0.5 bg-gray-100 text-gray-500 rounded text-xs font-medium">未启用</span>'}
+            </td>
+            <td class="px-4 py-3 text-sm">
+              <button onclick="editProduct('${p.id}')" class="text-blue-500 hover:text-blue-600 mr-3 font-medium">编辑</button>
+              <button onclick="deleteProduct('${p.id}')" class="text-red-500 hover:text-red-600 font-medium">删除</button>
+            </td>
+          </tr>
+        `).join('');
+      } catch (e) {
+        tbody.innerHTML = `<tr><td colspan="8" class="px-4 py-8 text-center text-red-400">加载失败: ${escapeHtml(e.message)}</td></tr>`;
+      }
+    }
+
+    function openProductModal(data = null) {
+      editingId = data ? data.id : null;
+      document.getElementById('modal-title').textContent = data ? '编辑商品' : '添加商品';
+      document.getElementById('modal-body').innerHTML = `
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">名称 *</label>
+            <input type="text" id="prod-name" value="${escapeAttr(data?.name || '')}" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none text-sm" required>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">分类</label>
+            <select id="prod-category" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none text-sm">
+              <option value="furniture" ${data?.category === 'furniture' ? 'selected' : ''}>家具</option>
+              <option value="decor" ${data?.category === 'decor' ? 'selected' : ''}>装饰</option>
+              <option value="materials" ${data?.category === 'materials' ? 'selected' : ''}>材料</option>
+              <option value="lighting" ${data?.category === 'lighting' ? 'selected' : ''}>灯具</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">图片URL</label>
+            <input type="text" id="prod-image" value="${escapeAttr(data?.image || '')}" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none text-sm" placeholder="/images/products/prod-1.jpg">
+          </div>
+          <div class="grid grid-cols-3 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">价格(VND)</label>
+              <input type="number" id="prod-price" value="${data?.price || ''}" min="0" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none text-sm">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">原价(VND)</label>
+              <input type="number" id="prod-originalPrice" value="${data?.originalPrice || ''}" min="0" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none text-sm">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">折扣(%)</label>
+              <input type="number" id="prod-discount" value="${data?.discount || 0}" min="0" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none text-sm">
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Shopee链接</label>
+            <input type="url" id="prod-shopeeUrl" value="${escapeAttr(data?.shopeeUrl || '')}" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none text-sm" placeholder="https://shopee.vn/...">
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">平台</label>
+              <select id="prod-platform" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none text-sm">
+                <option value="shopee" ${data?.platform === 'shopee' ? 'selected' : ''}>Shopee</option>
+                <option value="lazada" ${data?.platform === 'lazada' ? 'selected' : ''}>Lazada</option>
+                <option value="tiktok" ${data?.platform === 'tiktok' ? 'selected' : ''}>TikTok Shop</option>
+                <option value="other" ${data?.platform === 'other' ? 'selected' : ''}>其他</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">启用联盟</label>
+              <div class="flex items-center h-[38px]">
+                <input type="checkbox" id="prod-affiliateEnabled" ${data?.affiliateEnabled ? 'checked' : ''} class="w-4 h-4 text-blue-500 border-gray-300 rounded focus:ring-blue-400">
+                <label for="prod-affiliateEnabled" class="ml-2 text-sm text-gray-600">启用联盟营销</label>
+              </div>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">联盟链接</label>
+            <input type="url" id="prod-affiliateUrl" value="${escapeAttr(data?.affiliateUrl || '')}" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none text-sm" placeholder="https://shopee.vn/...">
+          </div>
+        </div>
+      `;
+      document.getElementById('modal-save-btn').onclick = saveProduct;
+      document.getElementById('modal-save-btn').className = 'px-6 py-2 text-sm text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition-colors font-medium';
+      document.getElementById('modal-overlay').classList.remove('hidden');
+    }
+
+    function editProduct(id) {
+      const prod = products.find(p => p.id === id);
+      if (prod) openProductModal(prod);
+    }
+
+    async function saveProduct() {
+      const body = {
+        name: document.getElementById('prod-name').value.trim(),
+        category: document.getElementById('prod-category').value,
+        image: document.getElementById('prod-image').value.trim(),
+        price: parseInt(document.getElementById('prod-price').value) || 0,
+        originalPrice: parseInt(document.getElementById('prod-originalPrice').value) || 0,
+        discount: parseInt(document.getElementById('prod-discount').value) || 0,
+        shopeeUrl: document.getElementById('prod-shopeeUrl').value.trim(),
+        platform: document.getElementById('prod-platform').value,
+        affiliateUrl: document.getElementById('prod-affiliateUrl').value.trim(),
+        affiliateEnabled: document.getElementById('prod-affiliateEnabled').checked
+      };
+      if (!body.name) { showToast('请填写名称', 'error'); return; }
+
+      const btn = document.getElementById('modal-save-btn');
+      btn.classList.add('btn-loading');
+      try {
+        if (editingId) {
+          await apiPut('/api/products/' + editingId, body);
+          showToast('商品已更新');
+        } else {
+          await apiPost('/api/products', body);
+          showToast('商品已创建');
+        }
+        closeModal();
+        loadProducts();
+      } catch (e) {
+        showToast(e.message, 'error');
+      } finally {
+        btn.classList.remove('btn-loading');
+      }
+    }
+
+    async function deleteProduct(id) {
+      if (!confirm('确定要删除这个商品吗？此操作不可撤销。')) return;
+      try {
+        await apiDelete('/api/products/' + id);
+        showToast('商品已删除');
+        loadProducts();
+      } catch (e) {
+        showToast(e.message, 'error');
+      }
+    }
+
+    // ============ Rebuild ============
+    async function triggerRebuild() {
+      if (!confirm('确定要重新构建网站吗？')) return;
+      const btn = document.getElementById('rebuild-btn');
+      const btnText = document.getElementById('rebuild-btn-text');
+      const btnSpinner = document.getElementById('rebuild-btn-spinner');
+      const statusDiv = document.getElementById('rebuild-status');
+      const statusText = document.getElementById('rebuild-status-text');
+
+      btn.classList.add('btn-loading');
+      btnText.textContent = '构建中...';
+      btnSpinner.classList.remove('hidden');
+      statusDiv.classList.remove('hidden');
+      statusText.innerHTML = '<span class="spinner mr-2"></span>正在构建，请稍候...';
+
+      try {
+        const data = await apiPost('/api/rebuild', {});
+        statusText.innerHTML = '<span class="text-brand-green font-medium">构建完成!</span>';
+        if (data.message) statusText.innerHTML += `<br><span class="text-gray-500">${escapeHtml(data.message)}</span>`;
+        showToast('网站构建完成');
+      } catch (e) {
+        statusText.innerHTML = `<span class="text-red-500">构建失败: ${escapeHtml(e.message)}</span>`;
+        showToast('构建失败: ' + e.message, 'error');
+      } finally {
+        btn.classList.remove('btn-loading');
+        btnText.textContent = '重新构建网站';
+        btnSpinner.classList.add('hidden');
+      }
+    }
+
+    // ============ Styles ============
+    let stylesData = [];
+
+    async function loadStyles() {
+      const tbody = document.getElementById('styles-table-body');
+      tbody.innerHTML = '<tr><td colspan="8" class="px-4 py-8 text-center text-gray-400"><span class="spinner mr-2"></span>加载中...</td></tr>';
+      try {
+        const data = await apiGet('/api/styles');
+        stylesData = data.styles || [];
+        if (!stylesData.length) {
+          tbody.innerHTML = '<tr><td colspan="8" class="px-4 py-8 text-center text-gray-400">暂无风格</td></tr>';
+          return;
+        }
+        const typeLabels = { style: '风格', content: '内容', source: '来源' };
+        tbody.innerHTML = stylesData.map(s => `
+          <tr class="hover:bg-gray-50 transition-colors">
+            <td class="px-4 py-3 text-lg">${s.icon || '-'}</td>
+            <td class="px-4 py-3 text-sm text-gray-500 font-mono">${escapeHtml(s.id)}</td>
+            <td class="px-4 py-3 text-sm text-gray-800 font-medium">${escapeHtml(s.name)}</td>
+            <td class="px-4 py-3 text-sm text-gray-600">${escapeHtml(s.nameEn)}</td>
+            <td class="px-4 py-3 text-sm text-gray-600">${escapeHtml(s.nameZh)}</td>
+            <td class="px-4 py-3 text-sm">
+              <div class="flex items-center gap-2">
+                <div class="w-5 h-5 rounded-full border border-gray-200" style="background-color: ${s.color}"></div>
+                <span class="text-gray-500 font-mono text-xs">${s.color}</span>
+              </div>
+            </td>
+            <td class="px-4 py-3 text-sm">
+              <span class="inline-block px-2 py-0.5 rounded text-xs font-medium" style="background-color: ${s.color}20; color: ${s.color}">${typeLabels[s.type] || s.type}</span>
+            </td>
+            <td class="px-4 py-3 text-sm">
+              <button onclick="editStyle('${escapeAttr(s.id)}')" class="text-[#7C3AED] hover:text-[#6D28D9] mr-3 font-medium">编辑</button>
+              <button onclick="deleteStyle('${escapeAttr(s.id)}')" class="text-red-500 hover:text-red-600 font-medium">删除</button>
+            </td>
+          </tr>
+        `).join('');
+      } catch (e) {
+        tbody.innerHTML = `<tr><td colspan="8" class="px-4 py-8 text-center text-red-400">加载失败: ${escapeHtml(e.message)}</td></tr>`;
+      }
+    }
+
+    function openStyleModal(data = null) {
+      editingId = data ? data.id : null;
+      document.getElementById('modal-title').textContent = data ? '编辑风格' : '添加风格';
+      document.getElementById('modal-body').innerHTML = `
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">ID *</label>
+            <input type="text" id="style-id" value="${escapeAttr(data?.id || '')}" ${data ? 'readonly class="w-full px-3 py-2 border border-gray-300 rounded-lg bg-gray-100 text-sm text-gray-500 cursor-not-allowed"' : 'class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#7C3AED] focus:border-[#7C3AED] outline-none text-sm"'} placeholder="例如: minimalist">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">图标 (Emoji)</label>
+            <input type="text" id="style-icon" value="${escapeAttr(data?.icon || '')}" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#7C3AED] focus:border-[#7C3AED] outline-none text-sm" placeholder="例如: 🌿">
+          </div>
+          <div class="grid grid-cols-3 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">名称 (越南语) *</label>
+              <input type="text" id="style-name" value="${escapeAttr(data?.name || '')}" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#7C3AED] focus:border-[#7C3AED] outline-none text-sm">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">名称 (英语)</label>
+              <input type="text" id="style-nameEn" value="${escapeAttr(data?.nameEn || '')}" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#7C3AED] focus:border-[#7C3AED] outline-none text-sm">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">名称 (中文)</label>
+              <input type="text" id="style-nameZh" value="${escapeAttr(data?.nameZh || '')}" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#7C3AED] focus:border-[#7C3AED] outline-none text-sm">
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">颜色</label>
+              <div class="flex items-center gap-2">
+                <input type="color" id="style-color-picker" value="${data?.color || '#6B7280'}" class="w-10 h-10 rounded cursor-pointer border-0 p-0" onchange="document.getElementById('style-color').value = this.value">
+                <input type="text" id="style-color" value="${escapeAttr(data?.color || '#6B7280')}" class="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#7C3AED] focus:border-[#7C3AED] outline-none text-sm font-mono" oninput="document.getElementById('style-color-picker').value = this.value">
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">类型</label>
+              <select id="style-type" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#7C3AED] focus:border-[#7C3AED] outline-none text-sm">
+                <option value="style" ${data?.type === 'style' ? 'selected' : ''}>风格 (style)</option>
+                <option value="content" ${data?.type === 'content' ? 'selected' : ''}>内容 (content)</option>
+                <option value="source" ${data?.type === 'source' ? 'selected' : ''}>来源 (source)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      `;
+      document.getElementById('modal-save-btn').onclick = saveStyle;
+      document.getElementById('modal-save-btn').className = 'px-6 py-2 text-sm text-white bg-[#7C3AED] rounded-lg hover:bg-[#6D28D9] transition-colors font-medium';
+      document.getElementById('modal-overlay').classList.remove('hidden');
+    }
+
+    function editStyle(id) {
+      const style = stylesData.find(s => s.id === id);
+      if (style) openStyleModal(style);
+    }
+
+    async function saveStyle() {
+      const body = {
+        id: document.getElementById('style-id').value.trim(),
+        icon: document.getElementById('style-icon').value.trim(),
+        name: document.getElementById('style-name').value.trim(),
+        nameEn: document.getElementById('style-nameEn').value.trim(),
+        nameZh: document.getElementById('style-nameZh').value.trim(),
+        color: document.getElementById('style-color').value.trim(),
+        type: document.getElementById('style-type').value,
+      };
+      if (!body.id || !body.name) { showToast('请填写ID和名称', 'error'); return; }
+
+      const btn = document.getElementById('modal-save-btn');
+      btn.classList.add('btn-loading');
+      try {
+        if (editingId) {
+          await apiPut('/api/styles/' + editingId, body);
+          showToast('风格已更新');
+        } else {
+          await apiPost('/api/styles', body);
+          showToast('风格已创建');
+        }
+        closeModal();
+        loadStyles();
+      } catch (e) {
+        showToast(e.message, 'error');
+      } finally {
+        btn.classList.remove('btn-loading');
+      }
+    }
+
+    async function deleteStyle(id) {
+      if (!confirm('确定要删除这个风格吗？此操作不可撤销。')) return;
+      try {
+        await apiDelete('/api/styles/' + id);
+        showToast('风格已删除');
+        loadStyles();
+      } catch (e) {
+        showToast(e.message, 'error');
+      }
+    }
+
+    // ============ Modal ============
+    function closeModal() {
+      document.getElementById('modal-overlay').classList.add('hidden');
+      editingId = null;
+      // Reset save button style
+      document.getElementById('modal-save-btn').className = 'px-6 py-2 text-sm text-white bg-brand-green rounded-lg hover:bg-brand-green-light transition-colors font-medium';
+    }
+
+    // Close modal on overlay click
+    document.getElementById('modal-overlay').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('modal-overlay')) closeModal();
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // ============ Utilities ============
+    function escapeHtml(str) {
+      if (!str) return '';
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    function escapeAttr(str) {
+      if (!str) return '';
+      return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    // ============ Clock ============
+    function updateClock() {
+      const now = new Date();
+      const str = now.toLocaleString('zh-CN', {
+        year: 'numeric', month: '2-digit', day: '2-digit',
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
+      });
+      document.getElementById('current-time').textContent = str;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // ============ Init ============
+    checkAuth();
+  </script>
+</body>
+</html>

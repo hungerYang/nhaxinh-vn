@@ -1,0 +1,480 @@
+[
+  {
+    "id": "1",
+    "title": "客厅留白比例",
+    "description": "合理分配留白空间，为东南亚风格的客厅营造通透宽敞的感觉。",
+    "content": "现代东南亚风格特别注重室内设计中的留白比例（negative space）。通透的空间不仅能营造宽敞感，还能促进空气流通——这在越南的热带湿润气候中尤为重要。\n\n## 60-30-10法则\n\n东南亚风格设计的黄金法则是按照60-30-10的比例分配空间：60%的面积留空或用于通行，30%用于主要家具，10%用于装饰品。\n\n## 天然材料营造通透感\n\n使用浅色天然木材、藤编和亚麻布料是常见选择。这些材料不仅环保，还能为空间营造轻盈、不沉重的感觉。\n\n## 自然采光\n\n充分利用自然光是关键。大窗户、白色薄纱窗帘，以及避免摆放高大的家具遮挡光线，都能让客厅变得更加明亮宽敞。\n\n## 室内绿植\n\n在房间角落或壁挂架上摆放2-3盆绿植，不仅能创造视觉焦点，还能让空间更加生动。金钱树、虎尾兰或绿萝都非常适合越南的室内环境。",
+    "image": "/images/articles/article-1.jpg",
+    "images": [
+      "/images/articles/article-1.jpg",
+      "/images/articles/article-1a.jpg",
+      "/images/articles/article-1b.jpg",
+      "/images/articles/article-1c.jpg"
+    ],
+    "style": "se-asia",
+    "room": "living",
+    "date": "2026-06-15",
+    "author": "NhàXinh Editorial",
+    "readTime": 5
+  },
+  {
+    "id": "2",
+    "title": "法式越南风 vs 欧洲法式",
+    "description": "对比越南法式风格与欧洲法式风格在色彩和装饰细节上的差异。",
+    "content": "越南的法式殖民地风格（Indochine）是法式建筑优雅与印度支那文化特色的独特结合。然而，它与欧洲典型的法式风格有着显著差异。\n\n## 色彩：从冷到暖\n\n欧洲法式家具通常使用冷色调的中性色，如灰色、纯白，搭配海军蓝或黑色的点缀。而越南法式风格则偏爱暖色调，如奶油色、米色、浅绿松石色和土黄色。\n\n## 材料：适应气候\n\n欧洲法式建筑通常使用天然石材、沉重的橡木和壁炉。在越南，印度支那风格的设计通过使用耐湿性好的柚木、白色大理石和水泥花砖来适应气候，营造凉爽感。\n\n## 装饰细节\n\n拱形门洞（arched doorway）、铁艺栏杆和水晶吊灯是共同元素。然而，在越南，我们常看到与藤编、越南丝绸画和钵场陶瓷的结合——这些特色在原汁原味的法式设计中找不到。\n\n## 开放空间\n\n越南的法式联排别墅通常设有天井（courtyard）或小阳台——这在典型法式建筑中很少见，但非常适合热带气候。",
+    "image": "/images/articles/article-2.jpg",
+    "images": [
+      "/images/articles/article-2.jpg",
+      "/images/articles/article-2a.jpg",
+      "/images/articles/article-2b.jpg",
+      "/images/articles/article-2c.jpg"
+    ],
+    "style": "french",
+    "room": "living",
+    "date": "2026-06-12",
+    "author": "NhàXinh Editorial",
+    "readTime": 7
+  },
+  {
+    "id": "3",
+    "title": "东南亚防潮材料",
+    "description": "选择适合热带潮湿气候的材料，从天然木材到人造石材。",
+    "content": "越南的热带湿润气候，平均湿度70-80%，雨季漫长，为选择室内材料带来了巨大挑战。以下是经过时间验证的最佳选择。\n\n## 天然木材：柚木和格木\n\n柚木（teak）因其天然的耐湿和防虫能力而备受推崇。柚木中的天然油脂形成保护层，使水分难以渗透。格木是更经济的选择，同样坚固耐用。\n\n## 人造石材（石英石）\n\n与容易渗水和变色的天然石材不同，人造石英石是厨房台面和餐桌的理想解决方案。不渗水、易清洁、耐用性高。\n\n## 防潮室内涂料\n\n使用含有防潮成分的涂料，特别是朝北的墙面和低洼区域。Dulux Weathershield和Jotun Majestic是深受越南家庭信赖的两个涂料系列。\n\n## 布料和皮革\n\n亚麻布和棉布是沙发和窗帘的最佳选择，因为透气且快干。远离人造皮革（PU），因为在潮湿环境中容易剥落。真皮或超细纤维布料是更好的替代选择。\n\n## 通风花砖（Ventilation blocks）\n\n作为越南建筑的特色，通风花砖不仅是装饰元素，还能帮助空气流通，自然地降低室内湿度。",
+    "image": "/images/articles/article-3.jpg",
+    "images": [
+      "/images/articles/article-3.jpg",
+      "/images/articles/article-3a.jpg",
+      "/images/articles/article-3b.jpg",
+      "/images/articles/article-3c.jpg"
+    ],
+    "style": "se-asia",
+    "room": "all",
+    "date": "2026-06-10",
+    "author": "NhàXinh Editorial",
+    "readTime": 6
+  },
+  {
+    "id": "4",
+    "title": "如何选择奶油色油漆",
+    "description": "选择合适的奶油色油漆，打造温暖优雅的空间。",
+    "content": "奶油色是法式殖民地风格和现代简约风格室内设计中最受欢迎的颜色之一。然而，选择合适的奶油色调并不总是那么容易。\n\n## 常见的奶油色调\n\n- **冷奶油色（Cool cream）：** 略带灰色或蓝色调，适合自然光线充足的房间。\n- **暖奶油色（Warm cream）：** 略带黄色或橙色调，为光线不足的房间营造温馨感。\n- **象牙白（Ivory）：** 更接近白色，营造干净宽敞的感觉。\n\n## 与其他色彩搭配\n\n奶油色墙面搭配深色木材（胡桃木、核桃木）营造优雅的对比效果。如果喜欢更柔和的风格，可以搭配浅色木材（橡木、白蜡木）和蓝绿色或浅绿色配饰。\n\n## 刷漆前试色\n\n务必在真实墙面上试刷样品，并在不同光线条件下观察（清晨、中午、傍晚）。油漆颜色可能因房屋朝向和光源而显著变化。\n\n## 油漆光泽度\n\n- **哑光（Matte）：** 遮盖墙面瑕疵效果好，营造奢华感但难清洁。\n- **蛋壳光/缎光（Eggshell/Satin）：** 兼顾美观和耐用性，适合客厅和卧室。\n- **半光（Semi-gloss）：** 易清洁，适合厨房和浴室。",
+    "image": "/images/articles/article-4.jpg",
+    "images": [
+      "/images/articles/article-4.jpg",
+      "/images/articles/article-4a.jpg",
+      "/images/articles/article-4b.jpg",
+      "/images/articles/article-4c.jpg"
+    ],
+    "style": "french",
+    "room": "all",
+    "date": "2026-06-08",
+    "author": "NhàXinh Editorial",
+    "readTime": 5
+  },
+  {
+    "id": "5",
+    "title": "小公寓变度假风的5个技巧",
+    "description": "用5个简单技巧将小公寓变成度假空间。",
+    "content": "你不需要海滨别墅就能拥有度假的感觉。通过以下5个技巧，你的小公寓也能变成私人度假胜地。\n\n## 1. 最大化自然采光\n\n用白色或米色的轻薄亚麻窗帘替换厚重的窗帘。自然光是营造度假般通透感的最重要因素。\n\n## 2. 添加绿植\n\n只需在房间角落摆放3-5盆绿植，就足以营造亲近自然的感觉。绿萝、金钱树或虎尾兰都很容易打理。\n\n## 3. 使用天然材料\n\n将合成纤维靠垫套换成亚麻或棉质枕套。草编地毯、竹帘和天然木制品都有助于营造放松感。\n\n## 4. 打造冥想角落\n\n留出一个小角落（只需1平方米），放一把舒适的椅子、一盏暖黄灯，还可以加一幅风景画。这将是你工作之余放松身心的地方。\n\n## 5. 香氛\n\n在客厅放一瓶柠檬草、薰衣草或柚子精油，立刻就能营造出水疗般的感觉。香薰蜡烛也是夜晚的绝佳选择。",
+    "image": "/images/articles/article-5.jpg",
+    "images": [
+      "/images/articles/article-5.jpg",
+      "/images/articles/article-5a.jpg",
+      "/images/articles/article-5b.jpg",
+      "/images/articles/article-5c.jpg"
+    ],
+    "style": "se-asia",
+    "room": "all",
+    "date": "2026-06-05",
+    "author": "NhàXinh Editorial",
+    "readTime": 4
+  },
+  {
+    "id": "6",
+    "title": "省钱打造拱形门",
+    "description": "用合理成本的方案替代传统拱形门。",
+    "content": "拱形门洞（arched doorway）是法式殖民地风格的标志，但建造真正的拱形门需要高昂的成本和技术。以下是既省钱又能保持古典美感的替代方案。\n\n## 方案1：石膏假拱形门\n\n与其用砖砌拱门，不如在普通门洞上方用石膏板做拱形框架。成本降低70%，但视觉效果相似。\n\n## 方案2：拱形装饰架\n\n在客厅或卧室打造一个嵌入式拱形壁架。这是将拱形元素引入生活空间的经济方式，无需改动建筑结构。\n\n## 方案3：拱形镜\n\n一面带拱形框架的大镜子挂在墙上，不仅能创造风格焦点，还能让空间看起来更宽敞。\n\n## 方案4：拱形窗\n\n如果正在装修，可以考虑将一个方形窗户换成拱形窗。比拱形门容易施工得多，因为不受力。\n\n## 色彩和装饰\n\n拱形门应涂成白色或奶油色以营造轻盈感。如果想创造焦点，可以露出拱门周围的砖边或天然石材。",
+    "image": "/images/articles/article-6.jpg",
+    "images": [
+      "/images/articles/article-6.jpg",
+      "/images/articles/article-6a.jpg",
+      "/images/articles/article-6b.jpg",
+      "/images/articles/article-6c.jpg"
+    ],
+    "style": "french",
+    "room": "entryway",
+    "date": "2026-06-03",
+    "author": "NhàXinh Editorial",
+    "readTime": 5
+  },
+  {
+    "id": "7",
+    "title": "500万预算装修指南",
+    "description": "仅用500万越南盾就能打造美丽舒适的家。",
+    "content": "你不需要花太多钱就能拥有一个美丽舒适的生活空间。500万越南盾的预算，以下是最高效的分配方式。\n\n## 1. 刷新墙面（150万）\n\n一层新漆可以完全改变房间的面貌。选择白色或奶油色以营造宽敞感。自己刷漆可以节省50%的人工成本。\n\n## 2. 窗帘（80万）\n\n从平价家居店购买白色/米色亚麻或棉质窗帘。避免购买昂贵的成品窗帘，买布料然后找人定制更划算。\n\n## 3. 装饰灯（70万）\n\n一盏设计精美的落地灯或台灯作为焦点。Shopee和旧货市场有很多价格合理的选项。\n\n## 4. 绿植和花盆（50万）\n\n3-4盆各种绿植搭配简单的陶瓷花盆。绿萝、金钱树、多肉植物都容易存活且价格实惠。\n\n## 5. 靠垫和地毯（100万）\n\n带简单图案的靠垫套和茶几下的小地毯。这些细节能立刻营造温馨感。\n\n## 6. 小装饰品（50万）\n\n相框、香薰蜡烛或一个陶瓷花瓶。这些小细节体现了主人的个性。",
+    "image": "/images/articles/article-7.jpg",
+    "images": [
+      "/images/articles/article-7.jpg",
+      "/images/articles/article-7a.jpg",
+      "/images/articles/article-7b.jpg",
+      "/images/articles/article-7c.jpg"
+    ],
+    "style": "se-asia",
+    "room": "all",
+    "date": "2026-06-01",
+    "author": "NhàXinh Editorial",
+    "readTime": 4
+  },
+  {
+    "id": "8",
+    "title": "越南人常犯的10个装修错误",
+    "description": "越南家庭装修中常见的错误及解决方法。",
+    "content": "经过多年的观察和咨询，我们发现一些装修错误在许多越南家庭中反复出现。以下是最常见的10个错误及解决方法。\n\n## 1. 灯光过冷或过黄\n\n许多家庭在整个房子使用6500K LED灯（冷白光），营造医院般的感觉。解决方法：卧室使用3000K（暖黄光），客厅使用4000K（中性光）。\n\n## 2. 窗帘太短\n\n窗帘只遮到窗户，露出窗框。解决方法：窗帘挂得比窗户高15-20厘米，长度垂到地面，营造更高的天花板感。\n\n## 3. 太多零碎装饰品\n\n书架上摆满小纪念品，营造杂乱感。解决方法：应用「少即是多」原则——只保留真正有意义的物品。\n\n## 4. 地毯太小\n\n地毯只够放在茶几下，碰不到沙发脚。解决方法：地毯必须足够大，让沙发/椅子的前脚能放在上面。\n\n## 5. 所有家具同一套\n\n从一家店买整套沙发、桌子、柜子，感觉像展厅。解决方法：从多个来源搭配家具，创造独特个性。\n\n## 6. 忽视自然采光\n\n挂厚黑窗帘或摆高柜挡住窗户。解决方法：充分利用自然光，使用薄纱窗帘或竹帘。\n\n## 7. 没有色彩点缀\n\n整个房子都是白色或米色，单调乏味。解决方法：选择一个强调色（蓝绿色、土橙色或绿色）用于靠垫、画作或单人椅。\n\n## 8. 家具比例不合适\n\n沙发对客厅来说太大，或餐桌对宽敞空间来说太小。解决方法：购买前仔细测量，画出布置图。\n\n## 9. 忽视墙面空间\n\n空墙营造不温馨的感觉。解决方法：挂1-2幅大画或一组小画（gallery wall）。\n\n## 10. 没有绿植\n\n空间缺乏生机。解决方法：只需2-3盆容易打理的绿植就足以改变氛围。",
+    "image": "/images/articles/article-8.jpg",
+    "images": [
+      "/images/articles/article-8.jpg",
+      "/images/articles/article-8a.jpg",
+      "/images/articles/article-8b.jpg",
+      "/images/articles/article-8c.jpg"
+    ],
+    "style": "french",
+    "room": "all",
+    "date": "2026-05-28",
+    "author": "NhàXinh Editorial",
+    "readTime": 8
+  },
+  {
+    "id": "9",
+    "title": "10 sai lầm phổ biến khi chọn gạch ốp lát",
+    "description": "Những lỗi thường gặp khi chọn gạch ốp cho nhà ở Việt Nam và cách tránh.",
+    "content": "## 1. Chọn gạch quá bóng cho khu vực ướt\nGạch bóng rất trượt khi ướt, đặc biệt nguy hiểm trong phòng tắm và khu vực bếp. Nên chọn gạch có bề mặt nhám hoặc gạch chống trượt có hệ số ma sát cao cho các khu vực này.\n\n## 2. Chọn gạch quá nhỏ cho không gian lớn\nGạch kích thước nhỏ (30x30cm) trong phòng khách rộng tạo cảm giác rối mắt và có quá nhiều đường ron. Hãy chọn gạch khổ lớn (60x60cm hoặc 80x80cm) cho không gian rộng để tạo hiệu ứng liền mạch và sang trọng hơn.\n\n## 3. Bỏ qua độ chống trơn trượt\nNhiều người chỉ quan tâm đến màu sắc và hoa văn mà quên kiểm tra chỉ số chống trượt (R9, R10, R11). Phòng tắm, sân thượng và khu vực ngoài trời cần gạch có độ chống trượt tối thiểu R10.\n\n## 4. Không xem xét màu sắc và vân gạch\nChọn gạch màu quá tối khiến căn phòng trở nên u tối và chật chội. Gạch vân đá hoặc vân gỗ phải được xem xét kỹ sự lặp lại của họa tiết - nếu vân lặp quá nhiều sẽ tạo cảm giác nhân tạo và kém sang.\n\n## 5. Chọn gạch chất lượng thấp để tiết kiệm chi phí\nGạch giá rẻ thường có độ hút nước cao, dễ bị ố màu và nứt vỡ sau một thời gian sử dụng. Đầu tư vào gạch chất lượng tốt ngay từ đầu sẽ tiết kiệm hơn so với việc phải thay mới sau 2-3 năm.\n\n## 6. Sử dụng gạch bóng quá nhiều trong phòng khách\nGạch bóng (polished) phản chiếu ánh sáng mạnh, gây chói mắt và tạo hiệu ứng 'sân băng' khó chịu. Thay vào đó, hãy cân nhắc gạch mờ (matt), gạch xước (honed) hoặc gạch vân đá có bề mặt tự nhiên.\n\n## 7. Không tính đến kích thước gạch và căn phòng\nGạch 60x120cm trải dài có thể làm phòng nhỏ trông dài hơn nhưng đồng thời tạo cảm giác hẹp. Cần tính toán hướng đặt gạch và tỷ lệ phòng trước khi quyết định kích thước gạch để đạt hiệu ứng thị giác tốt nhất.\n\n## 8. Bỏ qua khả năng chống thấm và chống ố\nGạch men bóng có khả năng chống thấm tốt hơn gạch mờ không tráng men. Với khu vực bếp và phòng tắm, hãy chọn gạch có độ hút nước dưới 0.5% và có xử lý chống ố bề mặt để dễ vệ sinh.\n\n## 9. Không đồng bộ giữa gạch tường và gạch nền\nSự kết hợp lệch tông giữa gạch tường và gạch nền tạo cảm giác thiếu hài hòa và chắp vá. Hãy chọn gạch tường và gạch nền cùng tông màu hoặc cùng một bộ sưu tập để đảm bảo tính đồng nhất cho không gian.\n\n## 10. Mua gạch không kiểm tra lô hàng thực tế\nMàu sắc gạch có thể chênh lệch giữa các lô sản xuất khác nhau. Luôn yêu cầu xem hàng thực tế, kiểm tra mã lô và mua dư 10-15% để dự phòng cho những việc cần thay thế sau này.\n\nKết luận: Chọn gạch ốp lát tưởng đơn giản nhưng lại ẩn chứa nhiều cạm bẫy mà người mua lần đầu dễ mắc phải. Hy vọng với 10 sai lầm phổ biến được phân tích trên đây, bạn sẽ có cái nhìn rõ ràng hơn và đưa ra quyết định sáng suốt cho ngôi nhà của mình. Hãy luôn nhớ: đầu tư đúng ngay từ đầu sẽ tiết kiệm gấp nhiều lần so với sửa chữa về sau.",
+    "image": "/images/articles/article-1.jpg",
+    "images": [
+      "/images/articles/article-1.jpg",
+      "/images/articles/article-9a.jpg",
+      "/images/articles/article-9b.jpg",
+      "/images/articles/article-9c.jpg"
+    ],
+    "style": "tips",
+    "room": "all",
+    "date": "2026-06-18",
+    "author": "NhàXinh Team",
+    "readTime": 5
+  },
+  {
+    "id": "10",
+    "title": "Trang trí nhà đẹp với ngân sách dưới 10 triệu",
+    "description": "Biến ngôi nhà thành không gian đẹp mắt mà không tốn quá nhiều tiền.",
+    "content": "## 1. Sử dụng sơn tạo điểm nhấn\nThay vì sơn toàn bộ tường, hãy chọn một mảng tường làm điểm nhấn với màu sắc nổi bật như xanh ngọc, cam đất hoặc xanh rêu. Chi phí chỉ khoảng 300-500 nghìn đồng nhưng hiệu quả thay đổi không gian rất lớn.\n\n## 2. Thay đổi rèm cửa\nRèm cũ có thể thay đổi hoàn toàn diện mạo căn phòng. Với ngân sách 500-800 nghìn, bạn có thể may rèm linen hoặc cotton màu trắng kem tạo cảm giác thoáng đãng và hiện đại hơn.\n\n## 3. Mua nội thất second-hand\nCác chợ đồ cũ, hội nhóm Facebook hoặc các shop nội thất thanh lý là kho báu cho ngân sách hạn chế. Một chiếc bàn trà gỗ, kệ sách hay ghế sofa cũ nhưng còn tốt có thể mua với giá chỉ bằng 30-40% giá mới.\n\n## 4. Thêm cây xanh\nCây xanh là cách rẻ nhất để làm mới không gian. Chi 300-500 nghìn cho 3-4 chậu cây như trầu bà, kim tiền, sen đá kết hợp chậu gốm đơn giản sẽ ngay lập tức thổi sức sống vào căn phòng.\n\n## 5. Sử dụng đèn trang trí\nMột chiếc đèn sàn hoặc đèn bàn có thiết kế đẹp với ánh sáng vàng ấm tạo điểm nhấn và không khí ấm cúng. Trên Shopee có nhiều lựa chọn đèn trang trí giá chỉ từ 200-400 nghìn đồng.\n\n## 6. Tái sử dụng đồ cũ\nSơn lại tủ quần áo cũ, thay tay nắm tủ, hoặc biến thùng gỗ cũ thành bàn trà là những cách tái chế thông minh. Một hộp sơn nhỏ và bộ tay nắm mới chỉ tốn khoảng 200 nghìn nhưng mang lại hiệu quả bất ngờ.\n\n## 7. Gối tựa và thảm trải sàn\nThay vỏ gối tựa với màu sắc mới và thêm một tấm thảm nhỏ dưới bàn trà. Với 500-700 nghìn, bạn có thể mua 3-4 vỏ gối và một thảm len nhỏ, tạo cảm giác ấm cúng ngay lập tức.\n\n## 8. Trang trí tường bằng tranh ảnh\nIn ảnh gia đình hoặc mua tranh canvas giá rẻ tạo gallery wall trên tường trống. Chi phí chỉ 200-400 nghìn cho 3-5 khung tranh nhưng biến bức tường trống thành điểm nhấn nghệ thuật.\n\n## 9. Sắp xếp lại nội thất\nĐôi khi không cần mua sắm gì cả - chỉ cần thay đổi vị trí sofa, kệ và bàn trà là căn phòng đã có diện mạo hoàn toàn mới. Hãy thử nghiệm các cách bố trí khác nhau trước khi quyết định mua đồ mới.\n\nKết luận: Trang trí nhà với ngân sách dưới 10 triệu là hoàn toàn khả thi nếu bạn biết ưu tiên và sáng tạo. Hãy bắt đầu với những thay đổi nhỏ nhất, và dần dần hoàn thiện không gian sống theo cách của riêng mình.",
+    "image": "/images/articles/article-2.jpg",
+    "images": [
+      "/images/articles/article-2.jpg",
+      "/images/articles/article-10a.jpg",
+      "/images/articles/article-10b.jpg",
+      "/images/articles/article-10c.jpg"
+    ],
+    "style": "budget",
+    "room": "all",
+    "date": "2026-06-18",
+    "author": "NhàXinh Team",
+    "readTime": 6
+  },
+  {
+    "id": "11",
+    "title": "Thiết kế phòng ngủ tối giản - Không gian nghỉ ngơi lý tưởng",
+    "description": "Bí quyết thiết kế phòng ngủ theo phong cách tối giản hiện đại, giúp bạn có giấc ngủ ngon và tinh thần thư thái.",
+    "content": "Phòng ngủ là không gian riêng tư quan trọng nhất trong ngôi nhà, nơi bạn tái tạo năng lượng sau một ngày dài. Phong cách tối giản (minimalist) với triết lý 'ít là nhiều' đặc biệt phù hợp cho phòng ngủ, bởi một không gian gọn gàng, thoáng đãng sẽ giúp tâm trí thư giãn và dễ đi vào giấc ngủ hơn.\n\n## Nguyên tắc cốt lõi của phòng ngủ tối giản\n\nPhòng ngủ tối giản không có nghĩa là trống trải và thiếu sức sống. Đúng hơn, nó tập trung vào những món đồ thực sự cần thiết và có giá trị sử dụng cao. Bắt đầu bằng việc loại bỏ những món đồ không cần thiết: bàn làm việc trong phòng ngủ, kệ sách quá tải, hay những món đồ trang trí rời rạc. **Mỗi món đồ trong phòng ngủ tối giản đều phải có mục đích rõ ràng.**\n\n## Bảng màu và vật liệu\n\nBảng màu của phòng ngủ tối giản xoay quanh các tông màu trung tính: trắng kem, be, xám nhạt, và nâu đất. Những màu sắc này tạo nền tảng yên tĩnh, giúp mắt được nghỉ ngơi. Vật liệu chính nên là **gỗ tự nhiên sáng màu** (sồi, tần bì) kết hợp với vải linen, cotton và len. Tránh sử dụng quá nhiều bề mặt bóng loáng vì chúng phản xạ ánh sáng và tạo cảm giác xa hoa không cần thiết.\n\n## Giường ngủ - Tâm điểm của không gian\n\nGiường ngủ là món đồ quan trọng nhất. Chọn giường có thiết kế đơn giản, không đầu giường cầu kỳ hoặc đầu giường dạng phẳng bọc vải. **Bộ chăn ga gối màu trắng hoặc be** với chất liệu cotton Ai Cập hoặc linen cao cấp. Chỉ cần 2-3 gối tựa thay vì cả đống gối lộn xộn như các showroom.\n\n## Ánh sáng và không gian\n\nTận dụng tối đa ánh sáng tự nhiên với rèm cửa bằng vải sheer màu trắng. Vào buổi tối, sử dụng **đèn ngủ có ánh sáng vàng ấm (2700-3000K)** thay vì đèn trần chói chang. Một chiếc đèn sàn nhỏ ở góc phòng cũng đủ tạo bầu không khí ấm cúng. Hãy giữ ít nhất 60% diện tích sàn trống để không gian 'thở'.",
+    "image": "/images/articles/article-11.jpg",
+    "images": [
+      "/images/articles/article-11.jpg",
+      "/images/articles/article-11a.jpg",
+      "/images/articles/article-11b.jpg",
+      "/images/articles/article-11c.jpg"
+    ],
+    "style": "minimalist",
+    "room": "bedroom",
+    "date": "2026-06-20",
+    "author": "NhàXinh Editorial",
+    "readTime": 6
+  },
+  {
+    "id": "12",
+    "title": "Phòng ngủ phong cách Bắc Âu - Ấm áp và thư thái giữa lòng nhiệt đới",
+    "description": "Mang hơi thở Scandinavia vào phòng ngủ Việt với gam màu sáng, gỗ tự nhiên và những chi tiết hygge ấm cúng.",
+    "content": "Phong cách Scandinavian (Bắc Âu) nổi tiếng với vẻ đẹp thanh lịch, tối giản nhưng đầy ấm áp. Không như nhiều người lầm tưởng, phong cách này hoàn toàn có thể áp dụng thành công trong điều kiện khí hậu nhiệt đới Việt Nam, thậm chí còn tạo cảm giác mát mẻ, thoáng đãng hơn.\n\n## Bảng màu Bắc Âu trong phòng ngủ nhiệt đới\n\nPhong cách Scandinavian sử dụng chủ yếu tông màu trắng làm nền, kết hợp với xám nhạt, be và xanh pastel. Tại Việt Nam, bạn có thể thay thế tông màu trắng lạnh (cool white) bằng **trắng kem ấm (warm white)** để phù hợp hơn với ánh sáng vàng phương Nam. Điểm nhấn màu đến từ các phụ kiện nhỏ: gối tựa màu xanh mint, chăn len màu mù tạt, hoặc một bức tranh in họa tiết thiên nhiên.\n\n## Đồ gỗ sáng màu - Linh hồn của Scandinavia\n\n**Gỗ sồi (oak)** và **gỗ tần bì (ash)** với màu sáng tự nhiên là lựa chọn hàng đầu. Giường ngủ, tủ quần áo và bàn trang điểm nên có đường nét đơn giản, chân cao để tạo cảm giác nhẹ nhàng và dễ vệ sinh. Nếu ngân sách hạn chế, bạn có thể sơn lại đồ gỗ cũ màu trắng hoặc màu be để đạt hiệu ứng tương tự.\n\n## Hygge - Bí quyết tạo cảm giác ấm cúng\n\nHygge (phát âm: 'hu-guh') là khái niệm về sự ấm cúng và thoải mái của người Đan Mạch. Trong phòng ngủ Bắc Âu, hygge được thể hiện qua: **thảm len dày dưới sàn**, đèn vàng ấm với chụp vải, chăn len cashmere mềm mại, và nến thơm. Một góc đọc sách nhỏ bên cửa sổ với ghế bành êm ái và đèn đọc sách cũng là điểm nhấn hygge hoàn hảo.\n\n## Cây xanh trong phòng ngủ Bắc Âu\n\nNgười Bắc Âu rất yêu thiên nhiên, vì vậy cây xanh là phần không thể thiếu. Trong phòng ngủ, đặt **2-3 chậu cây nhỏ** như cây lưỡi hổ, cây kim tiền hoặc sen đá trên bệ cửa sổ hoặc kệ treo tường. Chậu gốm trắng hoặc terracotta là lựa chọn phù hợp nhất với phong cách này.",
+    "image": "/images/articles/article-12.jpg",
+    "images": [
+      "/images/articles/article-12.jpg",
+      "/images/articles/article-12a.jpg",
+      "/images/articles/article-12b.jpg",
+      "/images/articles/article-12c.jpg"
+    ],
+    "style": "scandinavian",
+    "room": "bedroom",
+    "date": "2026-06-20",
+    "author": "NhàXinh Editorial",
+    "readTime": 7
+  },
+  {
+    "id": "13",
+    "title": "Phòng bếp tinh gọn phong cách Nhật Bản - Tối ưu từng centimet",
+    "description": "Khám phá cách thiết kế nhà bếp theo triết lý Nhật Bản: gọn gàng, ngăn nắp và đầy cảm hứng nấu nướng.",
+    "content": "Phòng bếp Nhật Bản nổi tiếng với sự ngăn nắp đến từng chi tiết nhỏ. Với những căn bếp Việt Nam thường có diện tích khiêm tốn, phong cách Nhật Bản mang đến giải pháp tối ưu: tận dụng từng centimet không gian mà vẫn giữ được vẻ đẹp thẩm mỹ tinh tế.\n\n## Nguyên tắc tổ chức không gian\n\nPhong cách Nhật Bản đề cao sự phân chia khu vực rõ ràng: **khu vực sơ chế, khu nấu nướng, và khu rửa**. Tam giác bếp (bếp - bồn rửa - tủ lạnh) được thiết kế với khoảng cách hợp lý, tối ưu hóa di chuyển. Khác với bếp phương Tây thường có đảo bếp lớn, bếp Nhật ưu tiên mặt bàn liền mạch và tủ bếp áp tường.\n\n## Vật liệu và màu sắc\n\n**Gỗ tự nhiên tối màu** (walnut, óc chó) kết hợp với đá granite hoặc quartz màu đen/xám tạo nên bảng màu trầm ấm đặc trưng. Tường bếp ốp gạch subway trắng hoặc gạch men trắng tạo độ sáng. Điểm nhấn là các chi tiết tre, nứa hoặc gốm sứ Nhật Bản. **Hãy giữ mặt bếp luôn trống**, chỉ để những dụng cụ thực sự cần thiết như muôi gỗ, dao Nhật, và thớt.\n\n## Hệ thống lưu trữ thông minh\n\nNgười Nhật là bậc thầy về lưu trữ. Trong bếp Nhật, mọi thứ đều có vị trí riêng: **ngăn kéo chia ô cho dao, thìa, nĩa; tủ treo có giá điều chỉnh độ cao; kệ gia vị xoay góc chết** (Lazy Susan). Tận dụng không gian dưới bồn rửa với kệ trượt và giỏ đựng đồ. Tủ bếp nên thiết kế kịch trần để tránh bụi bẩn tích tụ trên nóc tủ.\n\n## Yếu tố thiền trong bếp\n\nMột góc bếp nhỏ dành cho **ấm trà và tách trà gốm** không chỉ là nơi pha trà mà còn là điểm dừng chân thư giãn giữa những giờ nấu nướng. Một chậu cây bonsai nhỏ hoặc cây trầu bà trên kệ bếp cũng góp phần tạo cảm giác bình yên, thiền vị trong không gian bếp.",
+    "image": "/images/articles/article-13.jpg",
+    "images": [
+      "/images/articles/article-13.jpg",
+      "/images/articles/article-13a.jpg",
+      "/images/articles/article-13b.jpg",
+      "/images/articles/article-13c.jpg"
+    ],
+    "style": "japanese",
+    "room": "kitchen",
+    "date": "2026-06-20",
+    "author": "NhàXinh Editorial",
+    "readTime": 7
+  },
+  {
+    "id": "14",
+    "title": "Nhà bếp tối giản hiện đại - Ít đồ hơn, tiện nghi hơn",
+    "description": "Thiết kế phòng bếp theo trường phái tối giản - nơi mỗi món đồ đều có mục đích và không gian luôn thoáng đãng.",
+    "content": "Phòng bếp tối giản hiện đại đang trở thành xu hướng thiết kế nội thất hàng đầu tại Việt Nam. Ngày càng nhiều gia đình trẻ lựa chọn phong cách này vì sự thông minh, dễ vệ sinh và khả năng 'mở rộng' thị giác cho không gian bếp thường có diện tích hạn chế.\n\n## Mặt tiền tủ bếp liền mạch\n\nĐặc trưng của bếp tối giản là **tủ bếp phẳng, không tay nắm** (handleless cabinet). Hệ thống đẩy mở (push-to-open) hoặc tay nắm âm (integrated handle) tạo bề mặt liền mạch, dễ lau chùi. Màu sắc tủ bếp nên đồng nhất - trắng, xám hoặc màu gỗ tự nhiên - tránh sự kết hợp nhiều màu gây rối mắt. **Mặt bàn bếp bằng đá quartz trắng** hoặc bê tông mài (microcement) là lựa chọn lý tưởng.\n\n## Thiết bị tích hợp - Chìa khóa của sự gọn gàng\n\n**Tất cả thiết bị nên được tích hợp âm tủ:** máy rửa chén, lò nướng, máy hút mùi, và thậm chí cả tủ lạnh. Bề mặt bếp từ âm (induction hob) giúp mặt bếp phẳng hoàn toàn khi không sử dụng. Điều này không chỉ tạo vẻ đẹp tối giản mà còn giúp việc vệ sinh trở nên dễ dàng hơn bao giờ hết.\n\n## Nguyên tắc 'trên bàn trống'\n\n**Giữ mặt bàn bếp trống hoàn toàn** là thử thách lớn nhất nhưng cũng là yếu tố quyết định thành công của bếp tối giản. Máy pha cà phê, máy xay sinh tố, lò vi sóng - tất cả nên được cất trong tủ hoặc tủ thông minh có cơ chế nâng hạ. Chỉ để lại một vài vật dụng thiết yếu như một lọ hoa nhỏ hoặc một chậu cây xanh trên bàn bếp.\n\n## Ánh sáng tối giản mà tinh tế\n\nÁnh sáng trong bếp tối giản đóng vai trò tạo điểm nhấn. **Đèn LED dải âm trần** dọc theo các khu vực tủ bếp, đèn downlight âm trần, và đèn treo (pendant light) phía trên đảo bếp với thiết kế hình học đơn giản - đó là tất cả những gì bạn cần. Nhiệt độ màu nên duy trì ở 4000K (trung tính) để ánh sáng trung thực khi nấu nướng.",
+    "image": "/images/articles/article-14.jpg",
+    "images": [
+      "/images/articles/article-14.jpg",
+      "/images/articles/article-14a.jpg",
+      "/images/articles/article-14b.jpg",
+      "/images/articles/article-14c.jpg"
+    ],
+    "style": "minimalist",
+    "room": "kitchen",
+    "date": "2026-06-20",
+    "author": "NhàXinh Editorial",
+    "readTime": 6
+  },
+  {
+    "id": "15",
+    "title": "Phòng ăn thanh lịch phong cách Pháp - Nghệ thuật ẩm thực và trang trí",
+    "description": "Biến phòng ăn thành không gian sang trọng, lãng mạn với cảm hứng kiến trúc Pháp kết hợp nét Việt.",
+    "content": "Trong văn hóa Pháp, bữa ăn không chỉ là việc nạp năng lượng mà còn là một nghệ thuật - nơi gia đình quây quần, trò chuyện và thưởng thức từng khoảnh khắc. Phòng ăn phong cách Pháp vì thế luôn mang một vẻ đẹp lãng mạn, tinh tế và đầy cảm xúc.\n\n## Bàn ăn - Trung tâm của không gian\n\n**Bàn ăn gỗ tự nhiên** là linh hồn của phòng ăn Pháp. Gỗ sồi, gỗ óc chó hoặc gỗ teak với bề mặt chà nhám mịn, phủ lớp sơn bóng nhẹ (matte finish) tạo cảm giác sang trọng. Hình dáng bàn có thể là hình chữ nhật cổ điển hoặc hình tròn cho không gian nhỏ hơn. **Ghế ăn bọc vải** với tựa lưng cong nhẹ, màu kem hoặc xám, mang lại vẻ thanh lịch đặc trưng của Pháp.\n\n## Đèn chùm - Điểm nhấn kiến trúc\n\nMột chiếc đèn chùm (chandelier) pha lê hoặc đồng thau là yếu tố không thể thiếu. Treo đèn chùm cách mặt bàn 75-90cm để tạo ánh sáng tập trung cho bàn ăn. Nếu không gian nhỏ, bạn có thể thay thế bằng **3-5 đèn treo nhỏ (mini pendants)** xếp thành hàng dọc theo chiều dài bàn.\n\n## Trang trí bàn ăn kiểu Pháp\n\n**Khăn trải bàn bằng linen** trắng hoặc kẻ sọc nhẹ nhàng, kết hợp với khăn ăn vải và vòng giữ khăn bằng đồng. Bát đĩa gốm sứ trắng với viền vàng hoặc xanh nhạt. Trên bàn luôn có một bình hoa tươi - **hoa hồng, hoa oải hương hoặc hoa cúc trắng** - cắm trong bình gốm hoặc thủy tinh trong suốt.\n\n## Kết hợp nét Việt trong phòng ăn Pháp\n\nĐể tạo sự khác biệt, hãy thêm vào một vài chi tiết Việt Nam như: **bộ ấm trà gốm Bát Tràng**, tranh lụa Việt Nam treo tường, hoặc một bình gốm sành lớn đặt ở góc phòng. Sự kết hợp này tạo nên phong cách Pháp thuộc địa (Indochine) độc đáo, vừa sang trọng vừa gần gũi với văn hóa Việt.",
+    "image": "/images/articles/article-15.jpg",
+    "images": [
+      "/images/articles/article-15.jpg",
+      "/images/articles/article-15a.jpg",
+      "/images/articles/article-15b.jpg",
+      "/images/articles/article-15c.jpg"
+    ],
+    "style": "french",
+    "room": "dining",
+    "date": "2026-06-20",
+    "author": "NhàXinh Editorial",
+    "readTime": 7
+  },
+  {
+    "id": "16",
+    "title": "Không gian ăn uống Đông Nam Á - Ấm cúng và đậm đà bản sắc",
+    "description": "Thiết kế phòng ăn mang hơi thở văn hóa Đông Nam Á với vật liệu tự nhiên, màu sắc ấm áp và không gian mở.",
+    "content": "Ẩm thực Đông Nam Á nổi tiếng với sự phong phú và đậm đà, và không gian ăn uống cũng nên phản ánh tinh thần đó. Phong cách Đông Nam Á trong thiết kế phòng ăn là sự hòa quyện giữa vật liệu tự nhiên, màu sắc ấm áp và bầu không khí thân mật, gần gũi.\n\n## Bàn ăn gỗ lớn - Nơi sum họp\n\n**Bàn ăn gỗ teak hoặc gỗ xoan đào** kích thước lớn là trung tâm của phòng ăn Đông Nam Á. Bề mặt gỗ tự nhiên, đôi khi giữ nguyên vân gỗ và màu sắc nguyên bản, tạo cảm giác mộc mạc và chân thật. Bàn ăn hình chữ nhật với góc cạnh bo tròn mềm mại hoặc bàn tròn cho cảm giác quây quần. Ghế gỗ mây tre đan hoặc ghế gỗ đơn giản không bọc nệm là lựa chọn phổ biến.\n\n## Màu sắc và họa tiết bản địa\n\n**Bảng màu của phòng ăn Đông Nam Á** bao gồm các tông màu đất ấm: nâu đất, cam đất, vàng nghệ, xanh lá cây và đỏ gạch. Những họa tiết batik, ikat hoặc họa tiết dân tộc thiểu số trên gối tựa, khăn trải bàn hoặc thảm treo tường tạo điểm nhấn văn hóa độc đáo. Tuy nhiên, hãy sử dụng họa tiết ở mức độ vừa phải - chỉ 1-2 điểm nhấn trong phòng.\n\n## Vật liệu tự nhiên và thủ công\n\n**Mây tre đan, cói, và gốm sứ** là ba chất liệu không thể thiếu. Đệm ghế mây tre đan thay thế ghế bọc vải trong khí hậu nóng ẩm. Bộ bát đĩa gốm men xanh hoặc nâu đất, đũa tre, và chiếu cói trải sàn tạo nên trải nghiệm ăn uống đậm chất Đông Nam Á.\n\n## Kết nối với thiên nhiên\n\nPhòng ăn Đông Nam Á lý tưởng nhất khi có kết nối trực tiếp với thiên nhiên. Cửa sổ lớn mở ra vườn hoặc ban công, cây xanh trong nhà đặt gần bàn ăn, và **hệ thống thông gió tự nhiên** thay vì điều hòa hoàn toàn. Một bức tường gạch bông gió hoặc vách tre cũng tạo cảm giác gần gũi thiên nhiên. Ánh sáng vàng ấm từ đèn lồng hoặc đèn mây tre tạo không khí ấm cúng cho bữa tối gia đình.",
+    "image": "/images/articles/article-16.jpg",
+    "images": [
+      "/images/articles/article-16.jpg",
+      "/images/articles/article-16a.jpg",
+      "/images/articles/article-16b.jpg",
+      "/images/articles/article-16c.jpg"
+    ],
+    "style": "se-asia",
+    "room": "dining",
+    "date": "2026-06-20",
+    "author": "NhàXinh Editorial",
+    "readTime": 7
+  },
+  {
+    "id": "17",
+    "title": "Ban công phóng khoáng phong cách Bohemian - Thiên đường xanh giữa lòng phố thị",
+    "description": "Biến ban công thành khu vườn nghệ thuật phong cách Bohemian với cây xanh, vải màu và phụ kiện ethnic.",
+    "content": "Ban công là không gian kết nối giữa ngôi nhà và thế giới bên ngoài. Phong cách Bohemian (Boho) với tinh thần phóng khoáng, màu sắc rực rỡ và sự kết hợp tự do giữa các chất liệu là lựa chọn hoàn hảo để biến ban công thành một ốc đảo xanh giữa lòng phố thị ồn ào.\n\n## Cây xanh - Linh hồn của ban công Boho\n\n**Cây xanh là yếu tố quan trọng nhất** trong phong cách Bohemian. Kết hợp nhiều loại cây với độ cao và tán lá khác nhau: cây cao như cau cảnh, cây đa búp đỏ; cây trung bình như trầu bà, dương xỉ; cây nhỏ như sen đá, xương rồng. Treo cây trên tường, đặt cây trên kệ, và treo cây trên trần để tạo hiệu ứng khu vườn treo (hanging garden). **Chậu cây terracotta** màu cam đất là linh hồn của phong cách Boho.\n\n## Vải màu và họa tiết\n\n**Gối tựa và thảm có họa tiết ethnic** với sự pha trộn giữa họa tiết Mexico, Ấn Độ và Thổ Nhĩ Kỳ. Màu sắc chủ đạo: đỏ gạch, vàng mù tạt, xanh ngọc, tím lavender, và cam đất. Một tấm thảm nhỏ lớn (kilim) trải sàn, 3-5 gối tựa trên ghế mây hoặc ghế võng, và **một chiếc đèn lồng giấy** hoặc đèn dây LED tạo không khí lãng mạn cho buổi tối.\n\n## Nội thất di động và đa năng\n\nBan công Boho không cần nội thất đắt tiền. **Ghế mây tre, ghế võng (hammock), bàn gấp nhỏ, và pallet gỗ tái chế** làm ghế hoặc bàn là những lựa chọn tuyệt vời. Một kệ sách nhỏ hoặc tủ gỗ cũ sơn màu pastel làm điểm nhấn. Tất cả nội thất nên dễ dàng di chuyển để linh hoạt thay đổi bố trí.\n\n## Phụ kiện trang trí Bohemian\n\nPhụ kiện Boho không có quy tắc cứng nhắc - càng nhiều cá tính càng tốt! **Chuông gió, tranh thêu tay, mặt nạ trang trí tường, gương macrame, nến thơm nhiều màu, và bình gốm vẽ tay** là những gợi ý. Treo một tấm thảm nhỏ trang trí tường làm điểm nhấn. Quan trọng nhất: hãy chọn những món đồ khiến bạn cảm thấy vui vẻ và thoải mái.",
+    "image": "/images/articles/article-17.jpg",
+    "images": [
+      "/images/articles/article-17.jpg",
+      "/images/articles/article-17a.jpg",
+      "/images/articles/article-17b.jpg",
+      "/images/articles/article-17c.jpg"
+    ],
+    "style": "bohemian",
+    "room": "balcony",
+    "date": "2026-06-20",
+    "author": "NhàXinh Editorial",
+    "readTime": 6
+  },
+  {
+    "id": "18",
+    "title": "Phòng học tập và làm việc phong cách Bắc Âu - Tập trung và sáng tạo",
+    "description": "Thiết kế góc học tập và làm việc tại nhà theo phong cách Scandinavia, tối ưu sự tập trung và nguồn cảm hứng sáng tạo.",
+    "content": "Với xu hướng làm việc từ xa ngày càng phổ biến, một phòng học/phòng làm việc được thiết kế tốt không chỉ nâng cao năng suất mà còn bảo vệ sức khỏe thể chất và tinh thần. Phong cách Bắc Âu với sự tối giản, tiện dụng và gần gũi thiên nhiên là lựa chọn lý tưởng cho không gian này.\n\n## Bàn làm việc và ghế - Công thái học là ưu tiên số một\n\n**Bàn làm việc gỗ sồi hoặc gỗ thông** với thiết kế đơn giản, chân mảnh hoặc bàn có thể điều chỉnh độ cao (standing desk). Bàn nên có chiều rộng tối thiểu 120cm để đặt máy tính, sách vở và một vài vật dụng cá nhân. Ghế làm việc **cần có hỗ trợ thắt lưng** (lumbar support) và có thể điều chỉnh độ cao. Trong phong cách Bắc Âu, ghế thường có thiết kế thanh mảnh, bọc lưới hoặc vải, ưu tiên sự thoáng khí.\n\n## Ánh sáng - Yếu tố quyết định năng suất làm việc\n\n**Tận dụng tối đa ánh sáng tự nhiên.** Đặt bàn làm việc song song với cửa sổ (không đối diện hoặc quay lưng) để tránh chói mắt. Rèm cửa linen trắng mỏng giúp khuếch tán ánh sáng dịu nhẹ. Vào buổi tối, sử dụng **đèn bàn có cánh tay điều chỉnh (articulating arm)** với bóng đèn LED 4000K (trung tính) để giảm mỏi mắt. Đèn sàn ở góc phòng tạo ánh sáng gián tiếp ấm áp.\n\n## Lưu trữ thông minh - Giữ bàn luôn gọn gàng\n\n**Nguyên tắc: 80% đồ đạc được cất kín, 20% để trên bàn.** Tủ tài liệu kiểu Bắc Âu thường có cánh tủ phẳng, màu trắng hoặc xám, tạo cảm giác hòa vào tường. Kệ mở (open shelving) chỉ để những cuốn sách yêu thích và một vài món đồ trang trí nhỏ như cây xanh hoặc ảnh gia đình. Hệ thống quản lý dây điện nên được giấu gọn trong ống dây hoặc dưới bàn.\n\n## Cảm hứng từ thiên nhiên\n\n**Cây xanh trên bàn làm việc** không chỉ làm đẹp mà còn giúp giảm căng thẳng. Cây sen đá nhỏ, cây kim tiền mini, hoặc cây lưỡi hổ nhỏ trong chậu gốm trắng là lựa chọn phổ biến. Một bức tranh phong cảnh Bắc Âu hoặc in thực vật (botanical print) treo tường tạo cảm hứng. Trên bàn, chỉ nên để **một khung ảnh nhỏ, một cuốn sổ tay đẹp, và một cây bút chất lượng** - đủ để thể hiện cá tính mà không gây xao nhãng.",
+    "image": "/images/articles/article-18.jpg",
+    "images": [
+      "/images/articles/article-18.jpg",
+      "/images/articles/article-18a.jpg",
+      "/images/articles/article-18b.jpg",
+      "/images/articles/article-18c.jpg"
+    ],
+    "style": "scandinavian",
+    "room": "study",
+    "date": "2026-06-20",
+    "author": "NhàXinh Editorial",
+    "readTime": 7
+  },
+  {
+    "id": "19",
+    "title": "Phòng tắm phong cách Nhật Bản - Nghi lễ tắm rửa và nghệ thuật thư giãn",
+    "description": "Thiết kế phòng tắm theo triết lý Nhật Bản: không gian thanh tịnh, gỗ tự nhiên và nghi thức tắm onsen truyền thống.",
+    "content": "Trong văn hóa Nhật Bản, tắm rửa không chỉ đơn thuần là vệ sinh cá nhân mà là một nghi lễ thanh tẩy tâm hồn. Phòng tắm Nhật Bản (ofuro) được thiết kế như một không gian thiền định, nơi bạn gột rửa mọi muộn phiền sau ngày dài. Triết lý này hoàn toàn có thể áp dụng vào phòng tắm Việt Nam với những điều chỉnh phù hợp.\n\n## Khu vực tắm và ngâm riêng biệt\n\nKhác với phòng tắm phương Tây thường kết hợp tắm và vệ sinh trong cùng một khu vực, **phòng tắm Nhật Bản có sự phân chia rõ ràng: khu vực tắm đứng (shower area) và khu vực ngâm (bathing area)**. Việc tắm sạch cơ thể trước khi bước vào bồn ngâm là quy tắc bất di bất dịch. Nếu không gian cho phép, hãy thiết kế một ô tắm đứng riêng với vòi sen thấp (kiểu Nhật) và ghế gỗ nhỏ để ngồi tắm.\n\n## Chất liệu gỗ trong phòng tắm Nhật\n\n**Gỗ teak (tếch) là lựa chọn số một** cho phòng tắm Nhật Bản tại Việt Nam nhờ khả năng chịu nước và chống mối mọt tự nhiên. Ghế gỗ teak ngồi tắm, thảm gỗ teak, và bồn ngâm gỗ teak (wooden ofuro bathtub) là những món đồ đặc trưng. Bồn tắm bằng gỗ teak có khả năng giữ nhiệt tốt hơn bồn sứ và tạo cảm giác gần gũi thiên nhiên hơn. Nếu diện tích nhỏ, ít nhất hãy có **một tấm thảm gỗ teak** dưới chân khi tắm.\n\n## Bảng màu và ánh sáng tạo thanh tịnh\n\nBảng màu của phòng tắm Nhật Bản xoay quanh các tông **trầm, tối, và tự nhiên**: than đá phiến (slate), gỗ tối màu, và trắng kem. Tường và sàn sử dụng **gạch đen xám hoặc đá tự nhiên** tạo cảm giác như đang ở suối nước nóng. Ánh sáng nên dịu nhẹ và gián tiếp: đèn LED âm trần với ánh sáng vàng ấm (2700-3000K), đèn tường phía sau gương tạo ánh sáng khuếch tán. Nến thơm hoặc tinh dầu khuynh diệp, lavender trên kệ gỗ tăng thêm trải nghiệm thư giãn.\n\n## Yếu tố thiền trong phòng tắm\n\n**Góc thiền nhỏ trong phòng tắm** với một chậu cây bonsai, một bát nước đá, hoặc một bức thư pháp treo tường. Bình gốm Nhật Bản (tokoname) để cắm hoa hoặc trưng bày. Một chiếc đĩa nhỏ đựng tinh dầu và vài viên đá cuội đặt trên kệ gỗ. Đây là những chi tiết nhỏ nhưng tạo nên tinh thần 'zen' đặc trưng của phòng tắm Nhật Bản.",
+    "image": "/images/articles/article-19.jpg",
+    "images": [
+      "/images/articles/article-19.jpg",
+      "/images/articles/article-19a.jpg",
+      "/images/articles/article-19b.jpg",
+      "/images/articles/article-19c.jpg"
+    ],
+    "style": "japanese",
+    "room": "bathroom",
+    "date": "2026-06-20",
+    "author": "NhàXinh Editorial",
+    "readTime": 8
+  },
+  {
+    "id": "20",
+    "title": "Phòng tắm tối giản hiện đại - Sang trọng từ sự đơn giản thuần khiết",
+    "description": "Kiến tạo phòng tắm phong cách tối giản với đường nét sạch sẽ, bề mặt liền mạch và vật liệu cao cấp.",
+    "content": "Phòng tắm tối giản hiện đại là một trong những xu hướng thiết kế nội thất được yêu thích nhất hiện nay. Với những đường nét sạch sẽ, bề mặt liền mạch, và sự chú trọng vào chất lượng vật liệu hơn là số lượng đồ đạc, phòng tắm tối giản mang đến một vẻ đẹp thanh lịch, vượt thời gian.\n\n## Bề mặt liền mạch - Yếu tố then chốt\n\n**Càng ít đường joint (khe nối) càng tốt.** Sử dụng gạch lớn (60x60cm hoặc 120x60cm) và lý tưởng nhất là **gạch vân đá khổ lớn** (large-format stone-look tile) cho cả tường và sàn để tạo hiệu ứng liền mạch. Keo chà ron màu trùng với màu gạch giúp làm mờ các đường nối. Sàn phòng tắm nên có độ dốc nhẹ về phía thoát nước mà không cần sử dụng các khe ron phân cách lớn. Bồn rửa mặt dạng đặt trên bàn hoặc bồn rửa khối (solid surface) được đúc liền với mặt bàn là lựa chọn hàng đầu.\n\n## Thiết bị vệ sinh nổi (Wall-mounted)\n\n**Bồn cầu treo tường (wall-hung toilet)** và **tủ lavabo treo tường** giúp không gian sàn thông thoáng, dễ vệ sinh và tạo cảm giác nhẹ nhàng. Bồn tắm nằm (freestanding bathtub) với hình khối tối giản - hình chữ nhật hoặc oval trơn - đặt giữa phòng tắm làm tâm điểm. Vòi sen âm tường (wall-mounted shower fixtures) với đầu sen trần (rain shower) giấu đường ống hoàn toàn trong tường.\n\n## Bảng màu monochrome\n\n**Phòng tắm tối giản chỉ sử dụng 2-3 màu chủ đạo:** trắng, xám, đen hoặc be. Một phòng tắm trắng tinh khiết với điểm nhấn đen từ vòi nước, tay nắm, và khung gương là biểu tượng của tối giản. Hoặc phòng tắm tối màu (xám than/đen slate) với bồn tắm trắng tạo tương phản mạnh mẽ. **Tránh sử dụng các mảng màu tương phản hoặc họa tiết** - sự đồng nhất là chìa khóa.\n\n## Ánh sáng và gương - Mở rộng không gian\n\n**Gương lớn không khung (frameless mirror)** chiếm toàn bộ bức tường phía trên lavabo tạo hiệu ứng không gian rộng gấp đôi. Đèn LED dải âm quanh gương (backlit mirror) cung cấp ánh sáng dịu, không bóng đổ, đồng thời tạo điểm nhấn kiến trúc. Kết hợp với đèn downlight âm trần và một đèn treo thiết kế tối giản phía trên bồn tắm. Một vài chậu cây xanh nhỏ như cây lưỡi hổ hoặc cây trầu bà trong chậu trắng trơn là điểm nhấn sống động duy nhất trong không gian.",
+    "image": "/images/articles/article-20.jpg",
+    "images": [
+      "/images/articles/article-20.jpg",
+      "/images/articles/article-20a.jpg",
+      "/images/articles/article-20b.jpg",
+      "/images/articles/article-20c.jpg"
+    ],
+    "style": "minimalist",
+    "room": "bathroom",
+    "date": "2026-06-20",
+    "author": "NhàXinh Editorial",
+    "readTime": 7
+  },
+  {
+    "id": "21",
+    "title": "托斯卡纳风格 - 意大利乡村之美融入越南家居",
+    "description": "探索托斯卡纳风格的温暖色调、天然材质和亲切空间，轻松应用于越南住宅。",
+    "content": "托斯卡纳风格（Tuscan）灵感源自意大利托斯卡纳乡村——被誉为'意大利的心脏'。凭借温暖的泥土色调、质朴的天然材质和亲切的空间感，这种风格在越南越来越受欢迎，因为它适合热带气候，也契合亚洲家庭的温馨氛围。\n\n## 大地色调 - 托斯卡纳的灵魂\n\n托斯卡纳的色调围绕土烧色彩展开：**赤陶色（terracotta）、赭石黄（ochre）、赭褐色（sienna）和橄榄绿（olive green）**。墙壁通常涂成暖奶油色或浅土色，为空间营造温暖基调。天花板上**裸露的木梁**（exposed wooden beams）漆成深棕色或保留天然木色，是不可或缺的特色。\n\n## 天然质朴的材质\n\n**天然石材、赤陶砖和做旧木材**是三种核心材质。地面铺设赤陶砖或石灰岩，表面略带粗糙感，赤脚行走也舒适。一面花岗岩墙或堆叠石墙（stacked stone）创造强烈的建筑焦点。橡木或松木经过做旧处理（distressed），用于制作桌子、架子和门框。\n\n## 铁艺家具与手工艺品\n\n**铁艺吊灯**（wrought iron chandelier）搭配电子蜡烛或爱迪生灯泡，是托斯卡纳客厅的标志。大型木桌配稳固的底座，座椅采用皮革或土色亚麻布料。墙上悬挂**铜锅、手绘陶瓷盘或意大利乡村风景画**。一座古董木钟或铁艺框镜子也是完美点缀。\n\n## 温暖灯光\n\n托斯卡纳风格的灯光必须是**暖黄色（2700-3000K）**。铁艺吊灯、壁灯（sconce）和桌上的香薰蜡烛营造浪漫氛围。大窗户配轻薄亚麻窗帘，让自然光线洒入，凸显空间的暖色调。\n\n## 在越南应用托斯卡纳风格\n\n要在越南住宅中应用托斯卡纳风格，请注意：\n- **用石墙装饰代替壁炉**（不适合热带气候）。\n- **使用柚木代替橡木**，防潮性能更好。\n- **搭配热带绿植**，如橄榄树、榕树或虎尾兰，种在赤陶花盆中。\n- **赤陶砖**可替换为仿赤陶陶瓷砖，更易维护。",
+    "image": "/images/articles/article-21.jpg",
+    "images": [
+      "/images/articles/article-21.jpg",
+      "/images/articles/article-21a.jpg",
+      "/images/articles/article-21b.jpg",
+      "/images/articles/article-21c.jpg",
+      "/images/articles/article-21d.jpg",
+      "/images/articles/article-21e.jpg",
+      "/images/articles/article-21f.jpg",
+      "/images/articles/article-21g.jpg",
+      "/images/articles/article-21h.jpg",
+      "/images/articles/article-21i.jpg",
+      "/images/articles/article-21j.jpg",
+      "/images/articles/article-21k.jpg"
+    ],
+    "style": "tuscan",
+    "room": "living",
+    "date": "2026-06-22",
+    "author": "NhàXinh Editorial",
+    "readTime": 6
+  },
+  {
+    "id": "22",
+    "title": "去掉电视，找回空间 — '去客厅化'设计正流行",
+    "description": "4个去客厅化技巧，花80%的钱享受120%的舒适度。",
+    "content": "'去客厅化'（de-living-room）正在成为2026年最受关注的室内设计趋势之一。不再局限于传统客厅中沙发正对电视的固定布局，这一趋势提倡更灵活的开放式空间，服务于更多实际生活需求。\n\n## 什么是去客厅化？\n\n'去客厅化'并不意味着没有客厅。更准确地说，它是**打破传统客厅的固定布局**——沙发+茶几+电视——根据家庭的实际需求重新设计空间。它可以变成书房、瑜伽室、儿童游乐区，或居家办公空间。\n\n## 技巧一：模块化家具\n\n与其购买固定的大沙发，不如使用**可移动、可重新排列的模块化座椅**。需要宽敞空间时，座椅可以收纳到角落；有客人来访时，可以拉出来形成聊天区。地座式座椅（floor seating）搭配坐垫和靠枕也是灵活且节省空间的选择。\n\n## 技巧二：复合功能区\n\n一个开放式空间可以服务于多种用途：**阅读+工作区**、用餐+娱乐区，或儿童游乐+成人休闲区。关键是利用**地毯**和**多功能桌**来划分区域，而不需要建墙。\n\n## 技巧三：光线分区\n\n与其建墙，不如用**光线来划分空间**。用餐区上方悬挂吊灯（pendant light），阅读角放置落地灯，天花板安装LED灯带为公共区域照明。每个区域使用不同的色温和亮度，形成自然的视觉边界。\n\n## 技巧四：动态隔断\n\n使用**移动隔断、窗帘或开放式书架**代替固定墙壁。需要宽敞空间时，隔断可以打开；需要私密性时，可以关闭。开放式书架既是隔断又是展示空间，美观实用两不误。\n\n## 实际好处\n\n- **节省20-30%的家具费用**，因为不需要购买大沙发和电视。\n- **使用面积增加30-50%**，得益于多功能空间设计。\n- **适合50-80平方米的小户型**。\n- **增进家庭互动**，因为不再以电视为中心。",
+    "image": "/images/articles/article-22.jpg",
+    "images": [
+      "/images/articles/article-22.jpg",
+      "/images/articles/article-22a.jpg",
+      "/images/articles/article-22b.jpg",
+      "/images/articles/article-22c.jpg",
+      "/images/articles/article-22d.jpg",
+      "/images/articles/article-22e.jpg",
+      "/images/articles/article-22f.jpg",
+      "/images/articles/article-22g.jpg",
+      "/images/articles/article-22h.jpg",
+      "/images/articles/article-22i.jpg",
+      "/images/articles/article-22j.jpg",
+      "/images/articles/article-22k.jpg"
+    ],
+    "style": "minimalist",
+    "room": "living",
+    "date": "2026-06-22",
+    "author": "NhàXinh Editorial",
+    "readTime": 6
+  },
+  {
+    "id": "23",
+    "title": "法式装修的秘密 — 99%的人都踩过的坑",
+    "description": "掌握8个法式装修核心要素，避开最常见的装修误区。",
+    "content": "法式风格一直是许多家庭的梦想。然而，市场上90%被称为'法式风格'的家都犯了严重的错误。法式不仅仅是贴几条石膏线、挂一盏吊灯——而是需要掌握**8个核心要素**。\n\n## 误区一：石膏线过多\n\n很多人以为石膏线越多就越'法式'。实际上，墙面和天花板上过多的线条会让人眼花缭乱、空间压抑，而非显得奢华。**原则：少即是多。** 只需要在战略位置保留2-3条精致的线条：天花板边线、门框线，以及墙面上可能的一条拱形线（arch）。\n\n## 误区二：吊灯比例失调\n\n大房间配小吊灯显得格格不入，小房间配大吊灯则压倒空间。**规则：吊灯直径应为房间宽度的1/3到1/2。** 吊灯距离桌面75-90厘米。\n\n## 误区三：配色错误\n\n法式风格使用**暖色调色板**：奶油色、米色、浅绿松石色、土黄色和暖白色。避免使用纯白（cool white）或冷灰色——这些颜色属于现代风格，而非法式。\n\n## 误区四：风格混搭\n\n不要将现代简约家具（黑色真皮沙发、玻璃桌）与法式装饰混搭。**拉扣软包床（tufted）、弧形沙发配弯脚、细腿圆桌**——这才是真正的法式家具。\n\n## 误区五：廉价材料\n\n仿大理石人造石、薄而易碎的石膏线、亚克力吊灯——所有这些都会营造'假'和廉价的感觉。**投资真材实料：** 真正的大理石、厚度至少5厘米的石膏线、水晶或黄铜吊灯。\n\n## 误区六：忽略细节\n\n法式风格在于**细节**：黄铜门把手、金色相框、桌上的香薰蜡烛、垂到地面的亚麻窗帘。这些小细节造就了'真法式'和'假法式'的区别。\n\n## 误区七：灯光错误\n\n法式风格需要**暖黄光（2700-3000K）**。6500K的冷白LED灯会彻底破坏法式氛围。使用吊灯、壁灯（sconce）和蜡烛来营造多层次照明。\n\n## 误区八：缺少焦点\n\n每个法式房间都需要**一个强烈的焦点**：一面金色大框镜子、一幅大画，或一盏令人印象深刻的吊灯。没有焦点，空间会显得空旷而缺乏个性。",
+    "image": "/images/articles/article-23.jpg",
+    "images": [
+      "/images/articles/article-23.jpg",
+      "/images/articles/article-23a.jpg",
+      "/images/articles/article-23b.jpg",
+      "/images/articles/article-23c.jpg",
+      "/images/articles/article-23d.jpg",
+      "/images/articles/article-23e.jpg",
+      "/images/articles/article-23f.jpg",
+      "/images/articles/article-23g.jpg"
+    ],
+    "style": "french",
+    "room": "living",
+    "date": "2026-06-22",
+    "author": "NhàXinh Editorial",
+    "readTime": 7
+  },
+  {
+    "id": "24",
+    "title": "高级感≠砸钱 — 9个低成本打造质感家的方法",
+    "description": "9个预算有限也能装出高级感的实用方法，让你花小钱办大事。",
+    "content": "很多人觉得高级感需要大预算。实际上，通过以下**9个简单方法**，你完全可以在不花大钱的情况下，打造出一个高品质的质感家。\n\n## 1. 墙顶地统一色系\n\n色彩不统一是空间显廉价的首要原因。**选择一个暖大地色系**（米色、奶油色、浅棕色），并将墙面、天花板和地面统一应用。这会营造出连贯、开阔且高级的感觉。室内家具的颜色不应超过3种色调。\n\n## 2. 无主灯设计\n\n与其在房间中央挂一盏大吊灯，不如均匀分布**筒灯、壁灯和落地灯**。分层照明能创造空间深度和高级氛围。如果预算有限，优先为客厅和主卧配置灯光。\n\n## 3. 轻硬装重软装\n\n不要把太多预算花在复杂吊顶或花岗岩墙面上。相反，**保持顶面和墙面简洁**，然后把钱花在高质量的窗帘、地毯、靠枕和沙发毯上。这些软装直接接触身体，能瞬间提升高级感。\n\n## 4. 空间留白\n\n不要把每个角落都塞满。**留白是设计自信的体现。** 一面白墙挂上一幅画，房间一角只放一把椅子和一盆绿植——这些空白创造了呼吸感和优雅气质。\n\n## 5. 注重五金\n\n门把手、合页、水龙头、毛巾架——这些日常接触的小细节。**投资黄铜（brass）或哑光黑（matte black）材质的五金件**，选择线条精致的款式。仅仅换掉全屋的门把手，你就会惊讶于变化之大。\n\n## 6. 有故事的挂画\n\n一幅有意义的大画挂在一面白墙上，可以提升整个房间的格调。**不要买超市里廉价的装饰画。** 选择一幅你真正喜欢的画——可以是一张旅行照片，或一幅大幅艺术印刷品。简单的木质或金属画框会完美呈现它的美。\n\n## 7. 绿植搭配\n\n与其买很多廉价的小盆栽，不如选择**1-2株造型优美的大植物**，如琴叶榕、龟背竹（monstera）或橄榄树。搭配简约陶瓷花盆。大型绿植能创造空间深度和亲近自然的感受。\n\n## 8. 忘掉风格标签\n\n不要试图把家硬塞进'极简'或'法式'的标签里。相反，**专注于生活逻辑**：你需要什么、你喜欢什么、你如何使用空间。一个按照真实生活逻辑设计的家，自然会变得美观而高级。\n\n## 9. 利用自然光\n\n自然光是最佳的免费装饰材料。**白色薄纱窗帘**、不被遮挡的大窗户、以及对着窗户放置的镜子来反射光线——这些都不花钱，却能创造出惊人的高级效果。",
+    "image": "/images/articles/article-24.jpg",
+    "images": [
+      "/images/articles/article-24.jpg",
+      "/images/articles/article-24a.jpg",
+      "/images/articles/article-24b.jpg",
+      "/images/articles/article-24c.jpg",
+      "/images/articles/article-24d.jpg",
+      "/images/articles/article-24e.jpg",
+      "/images/articles/article-24f.jpg",
+      "/images/articles/article-24g.jpg"
+    ],
+    "style": "minimalist",
+    "room": "living",
+    "date": "2026-06-22",
+    "author": "NhàXinh Editorial",
+    "readTime": 7
+  },
+  {
+    "id": "25",
+    "title": "厨房装修最容易翻车的7个细节，装之前一定要看！",
+    "description": "99%家庭都会犯的厨房设计错误，以及正确的解决方案。",
+    "content": "厨房是家里使用频率最高的地方，但也是设计时最容易出错的地方。以下是专家分享的**厨房最容易翻车的7个细节**。\n\n## 1. 哑光砖、网红砖、小白砖\n\n哑光砖（matte）用在厨房墙面非常难擦油污。网红砖和小白砖（subway tile）缝隙太多——每一条缝隙都是油污和霉菌的藏身之处。**解决方案：** 用亮光砖（glossy）或半亮光砖（semi-gloss），选浅色、大尺寸（30x60cm以上）的砖，减少缝隙数量。\n\n## 2. 美缝选错\n\n普通白色美缝剂用几个月就会发黄。环氧彩砂虽然耐用，但基层不平容易脱落。**解决方案：** 用防水防霉的美缝剂（环氧或聚脲），颜色选浅灰或米色——比纯白更耐脏。\n\n## 3. 岩板台面太薄\n\n超薄岩板（sintered stone）看起来高级，但边缘非常容易崩瓷。切菜时碰撞发出\"咚咚\"的噪音也很烦人。**解决方案：** 选20-30mm厚的石英石台面，或者实心人造石（solid surface）。厚一点但耐用很多，切菜也不会吵。\n\n## 4. 集成灶\n\n集成灶（烟机灶具一体机）看起来整洁，但坏一个部件就要换整套。维修成本高，替换选择也少。**解决方案：** 烟机和灶具分开买。容易替换、容易维修，选择也更多。\n\n## 5. 双槽洗菜盆\n\n双槽看起来方便，但每个槽都太小——大锅大盆根本放不进去。**解决方案：** 选大单槽，最小尺寸60x45cm。洗锅洗盆都方便，需要分区时加个沥水篮就行。\n\n## 6. 凉霸\n\n厨房装凉霸（吊顶风扇）会把热气往下吹，做饭的人越吹越热。降温效果几乎为零。**解决方案：** 装厨房专用空调，或者从其他房间引风过来。预算有限就开窗，用落地扇横着吹。\n\n## 7. 吊轨推拉门\n\n吊轨推拉门看起来高级，但滑轮容易坏、门扇太重容易变形、难维护。用一两年就会嘎吱响或推拉不顺。**解决方案：** 选地轨推拉门或传统平开门。更耐用、好维修、密封性更好——能有效阻挡油烟飘到客厅。",
+    "image": "/images/articles/article-25.jpg",
+    "images": [
+      "/images/articles/article-25.jpg",
+      "/images/articles/article-25a.jpg",
+      "/images/articles/article-25b.jpg",
+      "/images/articles/article-25c.jpg",
+      "/images/articles/article-25d.jpg",
+      "/images/articles/article-25e.jpg",
+      "/images/articles/article-25f.jpg",
+      "/images/articles/article-25g.jpg"
+    ],
+    "style": "modern",
+    "room": "kitchen",
+    "date": "2026-06-22",
+    "author": "NhàXinh Editorial",
+    "readTime": 6
+  }
+]
