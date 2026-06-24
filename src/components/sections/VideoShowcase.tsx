@@ -21,7 +21,7 @@ const videos: VideoItem[] = [
   {
     platform: 'youtube',
     videoId: 'dQw4w9WgXcQ',
-    thumbnail: './images/video-1.jpg',
+    thumbnail: '/nhaxinh-vn/images/video-1.jpg',
     title: 'Thiết kế phòng khách phong cách Đông Nam Á',
     author: 'NhàXinh Channel',
     duration: '12:34',
@@ -29,7 +29,7 @@ const videos: VideoItem[] = [
   {
     platform: 'tiktok',
     videoId: '1234567890',
-    thumbnail: './images/video-2.jpg',
+    thumbnail: '/nhaxinh-vn/images/video-2.jpg',
     title: 'Mẹo trang trí ban công nhỏ',
     author: '@nhaxinh_tips',
     duration: '0:45',
@@ -38,7 +38,7 @@ const videos: VideoItem[] = [
     platform: 'facebook',
     videoId: '123456789',
     videoUrl: 'https://www.facebook.com/facebook/videos/123456789',
-    thumbnail: './images/video-3.jpg',
+    thumbnail: '/nhaxinh-vn/images/video-3.jpg',
     title: 'Before & After căn hộ 45m²',
     author: 'NhàXinh Community',
     duration: '8:20',

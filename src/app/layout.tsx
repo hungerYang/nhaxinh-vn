@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "./images/hero/hero-1.jpg",
+        url: "/nhaxinh-vn/images/hero/hero-1.jpg",
         width: 1200,
         height: 630,
         alt: "NhàXinh.vn",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    images: ["./images/hero/hero-1.jpg"],
+    images: ["/nhaxinh-vn/images/hero/hero-1.jpg"],
   },
   other: {
     "application-name": "NhàXinh.vn",
