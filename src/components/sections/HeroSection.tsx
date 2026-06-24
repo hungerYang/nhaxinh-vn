@@ -8,7 +8,7 @@ import HoverRevealCard from '../shared/HoverRevealCard';
 
 const slides = [
   {
-    image: '/images/hero/hero-1.jpg',
+    image: './images/hero/hero-1.jpg',
     bgGradient: 'from-[#2D5A3D] to-[#1a3d2a]',
     titleKey: 'slide1.title',
     descriptionKey: 'slide1.description',
@@ -19,7 +19,7 @@ const slides = [
     ],
   },
   {
-    image: '/images/hero/hero-2.jpg',
+    image: './images/hero/hero-2.jpg',
     bgGradient: 'from-[#8B7355] to-[#5c4a35]',
     titleKey: 'slide2.title',
     descriptionKey: 'slide2.description',
@@ -30,7 +30,7 @@ const slides = [
     ],
   },
   {
-    image: '/images/hero/hero-3.jpg',
+    image: './images/hero/hero-3.jpg',
     bgGradient: 'from-[#C4A35A] to-[#8a7040]',
     titleKey: 'slide3.title',
     descriptionKey: 'slide3.description',

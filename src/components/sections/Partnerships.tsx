@@ -7,7 +7,7 @@ const partners = [
   {
     name: 'Studio A Design',
     specialty: 'Thiết kế nội thất cao cấp',
-    image: '/images/rooms/living.jpg',
+    image: './images/rooms/living.jpg',
     icon: Building2,
     location: 'Hà Nội',
     projects: 120,
@@ -15,7 +15,7 @@ const partners = [
   {
     name: 'Atelier B',
     specialty: 'Tư vấn phong cách',
-    image: '/images/rooms/bedroom.jpg',
+    image: './images/rooms/bedroom.jpg',
     icon: Palette,
     location: 'TP. Hồ Chí Minh',
     projects: 85,
@@ -23,7 +23,7 @@ const partners = [
   {
     name: 'Design Lab C',
     specialty: 'Thi công trọn gói',
-    image: '/images/rooms/study.jpg',
+    image: './images/rooms/study.jpg',
     icon: Ruler,
     location: 'Đà Nẵng',
     projects: 64,
