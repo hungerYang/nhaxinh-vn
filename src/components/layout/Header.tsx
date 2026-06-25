@@ -69,12 +69,17 @@ export default function Header() {
   }, []);
 
   // Compute locale switch URL for a given target locale
+  const basePath = '/nhaxinh-vn';
   const getLocaleUrl = useMemo(() => {
     return (targetLocale: string) => {
       let currentPath = pathname || '/';
+      // Remove basePath prefix if present
+      if (currentPath.startsWith(basePath)) {
+        currentPath = currentPath.slice(basePath.length) || '/';
+      }
       // Remove locale prefix from path
       if (currentPath.startsWith(`/${locale}/`)) {
-        currentPath = currentPath.slice(`/${locale}`.length); // e.g. /vi/article/1/ -> /article/1/
+        currentPath = currentPath.slice(`/${locale}`.length);
       } else if (currentPath === `/${locale}` || currentPath === `/${locale}/`) {
         currentPath = '/';
       }
@@ -82,13 +87,13 @@ export default function Header() {
       if (!currentPath.startsWith('/')) {
         currentPath = '/' + currentPath;
       }
-      // For root path, just return /{locale}/
+      // For root path, just return /basePath/{locale}/
       if (currentPath === '/') {
-        return `/${targetLocale}/`;
+        return `${basePath}/${targetLocale}/`;
       }
       // Remove trailing slash to avoid double slashes, then add it back
       const cleanPath = currentPath.endsWith('/') ? currentPath.slice(0, -1) : currentPath;
-      return `/${targetLocale}${cleanPath}/`;
+      return `${basePath}/${targetLocale}${cleanPath}/`;
     };
   }, [locale, pathname]);
 
