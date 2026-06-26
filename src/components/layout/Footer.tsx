@@ -145,6 +145,9 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-white/10">
+          <p className="text-white/40 text-xs text-center mb-3 max-w-3xl mx-auto leading-relaxed">
+            {t('footer.affiliateDisclosure')}
+          </p>
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
             <p className="text-white/40 text-xs sm:text-sm text-center sm:text-left">{t('footer.copyright')}</p>
             <div className="flex items-center gap-4 text-xs text-white/40">

@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import { NextIntlClientProvider } from 'next-intl';
 import WebSiteSchema from '@/components/seo/WebSiteSchema';
 import { AuthProvider } from '@/components/auth/AuthProvider';
-import ChatWidget from '@/components/shared/ChatWidget';
+import WebVitalsMonitor from '@/components/analytics/WebVitalsMonitor';
+
+const ChatWidget = dynamic(() => import('@/components/shared/ChatWidget'));
 
 const localeTitles: Record<string, string> = {
   vi: 'Nền Tảng Chia Sẻ Thiết Kế Nội Thất Việt Nam',
@@ -45,27 +48,20 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  // Explicitly load messages for the current locale
   const messages = (await import(`../../../messages/${locale}.json`)).default;
 
-  const affiliateDisclosure: Record<string, string> = {
-    vi: 'Một số liên kết trên trang này là liên kết tiếp thị. Chúng tôi có thể nhận hoa hồng khi bạn mua qua các liên kết này.',
-    zh: '本页面部分链接为联盟营销链接。通过这些链接购买商品，我们可能会获得佣金。',
-    en: 'Some links on this page are affiliate links. We may earn a commission when you purchase through these links.',
-  };
-
   return (
-    <NextIntlClientProvider messages={messages} locale={locale}>
-      <AuthProvider>
-        <WebSiteSchema />
-        {children}
-        <ChatWidget />
-        <footer className="w-full py-4 text-center">
-          <p className="text-xs text-gray-400 max-w-3xl mx-auto px-4 leading-relaxed">
-            {affiliateDisclosure[locale] || affiliateDisclosure.vi}
-          </p>
-        </footer>
-      </AuthProvider>
-    </NextIntlClientProvider>
+    <html lang={locale} className="h-full antialiased">
+      <body className="min-h-full flex flex-col font-sans">
+        <NextIntlClientProvider messages={messages} locale={locale}>
+          <AuthProvider>
+            <WebVitalsMonitor />
+            <WebSiteSchema />
+            {children}
+            <ChatWidget />
+          </AuthProvider>
+        </NextIntlClientProvider>
+      </body>
+    </html>
   );
 }

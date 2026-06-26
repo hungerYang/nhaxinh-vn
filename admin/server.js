@@ -4,7 +4,7 @@ const path = require('path');
 const fs = require('fs');
 
 // Load .env.admin manually (no dotenv dependency needed)
-const envPath = path.resolve('/workspace/nhaxinh/.env.admin');
+const envPath = path.join(__dirname, '..', '.env.admin');
 try {
   const envContent = fs.readFileSync(envPath, 'utf-8');
   envContent.split('\n').forEach(line => {
@@ -46,6 +46,7 @@ app.use(cors({
     'http://localhost:4000',
     'http://127.0.0.1:3000',
     'http://127.0.0.1:4000',
+    'https://hungeryang.github.io',
   ],
   credentials: true,
 }));
@@ -65,12 +66,12 @@ app.use('/api/comments', commentRoutes);
 
 // Protected API routes
 app.use('/api/articles', authMiddleware, articleRoutes);
-app.use('/api/submissions', authMiddleware, submissionRoutes);
+app.use('/api/submissions', submissionRoutes);
 app.use('/api/products', authMiddleware, productRoutes);
 app.use('/api/rebuild', authMiddleware, rebuildRoutes);
 
-// Upload route (protected)
-app.use('/api', authMiddleware, uploadRoutes);
+// Upload route (user auth for image upload, used by submit form)
+app.use('/api', uploadRoutes);
 
 // Message routes (user auth handled at route level)
 app.use('/api/messages', messageRoutes);

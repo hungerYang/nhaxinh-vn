@@ -63,8 +63,9 @@ export function getLocalizedArticle(id: string, locale: string): UnifiedContentI
   return { ...article, type: 'article' as const };
 }
 
-export function getAllContent(): UnifiedContentItem[] {
-  const articleItems: UnifiedContentItem[] = articles.map((a) => ({
+export function getAllContent(locale: string = 'vi'): UnifiedContentItem[] {
+  const localeArticles = articlesByLocale[locale] || articlesByLocale['vi'];
+  const articleItems: UnifiedContentItem[] = localeArticles.map((a) => ({
     ...a,
     type: 'article' as const,
   }));
@@ -80,16 +81,16 @@ export function getAllContent(): UnifiedContentItem[] {
   return [...articleItems, ...submissionItems];
 }
 
-export function getContentById(id: string): UnifiedContentItem | undefined {
-  return getAllContent().find((item) => item.id === id);
+export function getContentById(id: string, locale?: string): UnifiedContentItem | undefined {
+  return getAllContent(locale).find((item) => item.id === id);
 }
 
-export function getRelatedContent(currentId: string, style: string, limit: number = 3): UnifiedContentItem[] {
-  return getAllContent()
+export function getRelatedContent(currentId: string, style: string, limit: number = 3, locale?: string): UnifiedContentItem[] {
+  return getAllContent(locale)
     .filter((item) => item.id !== currentId && item.style === style)
     .slice(0, limit);
 }
 
-export function getAllContentIds(): string[] {
-  return getAllContent().map((item) => item.id);
+export function getAllContentIds(locale?: string): string[] {
+  return getAllContent(locale).map((item) => item.id);
 }

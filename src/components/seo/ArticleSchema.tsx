@@ -9,13 +9,14 @@ interface ArticleSchemaProps {
     date: string;
     author: string;
   };
+  locale: string;
 }
 
-const SITE_URL = 'https://nhaxinh.vn';
+const SITE_URL = 'https://hungeryang.github.io/nhaxinh-vn';
 const SITE_NAME = 'NhàXinh.vn';
 
-export default function ArticleSchema({ article }: ArticleSchemaProps) {
-  const url = `${SITE_URL}/article/${article.id}/`;
+export default function ArticleSchema({ article, locale }: ArticleSchemaProps) {
+  const url = `${SITE_URL}/${locale}/article/${article.id}/`;
   const ogImage = article.image.startsWith('http')
     ? article.image
     : `${SITE_URL}${article.image}`;

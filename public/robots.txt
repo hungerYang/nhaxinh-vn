@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Sitemap: https://nhaxinh.vn/sitemap.xml
+Sitemap: https://hungeryang.github.io/nhaxinh-vn/sitemap.xml
 
 User-agent: *
 Disallow: /api/

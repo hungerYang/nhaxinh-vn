@@ -116,7 +116,8 @@
     "subscribed": "Subscribed!",
     "terms": "Terms",
     "policy": "Policy",
-    "address": "District 1, Ho Chi Minh City"
+    "address": "District 1, Ho Chi Minh City",
+    "affiliateDisclosure": "Some links on this page are affiliate links. We may earn a commission when you purchase through these links."
   },
   "search": {
     "placeholder": "Search articles, products, styles...",
@@ -242,7 +243,10 @@
     "justNow": "Just now",
     "minutesAgo": "{count} minute(s) ago",
     "hoursAgo": "{count} hour(s) ago",
-    "daysAgo": "{count} day(s) ago"
+    "daysAgo": "{count} day(s) ago",
+    "loadFailed": "Failed to load comments",
+    "serviceUnavailable": "Comment service is temporarily unavailable",
+    "retry": "Retry"
   },
   "chat": {
     "title": "Messages",

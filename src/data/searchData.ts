@@ -1,6 +1,14 @@
-import articles from './articles.json';
+import articlesVi from './articles.json';
+import articlesZh from './articles.zh.json';
+import articlesEn from './articles.en.json';
 import submissions from './submissions.json';
 import products from './products.json';
+
+const articlesByLocale: Record<string, typeof articlesVi> = {
+  vi: articlesVi,
+  zh: articlesZh,
+  en: articlesEn,
+};
 
 export interface SearchableItem {
   id: string;
@@ -18,7 +26,8 @@ export interface SearchableItem {
   likes?: number;
 }
 
-export function getAllSearchableItems(): SearchableItem[] {
+export function getAllSearchableItems(locale: string = 'vi'): SearchableItem[] {
+  const articles = articlesByLocale[locale] || articlesByLocale['vi'];
   const articleItems: SearchableItem[] = articles.map((a) => ({
     id: String(a.id),
     type: 'article' as const,

@@ -116,7 +116,8 @@
     "subscribed": "已订阅！",
     "terms": "使用条款",
     "policy": "隐私政策",
-    "address": "胡志明市第一郡"
+    "address": "胡志明市第一郡",
+    "affiliateDisclosure": "本页面部分链接为联盟营销链接。通过这些链接购买商品，我们可能会获得佣金。"
   },
   "search": {
     "placeholder": "搜索文章、产品、风格...",
@@ -242,7 +243,10 @@
     "justNow": "刚刚",
     "minutesAgo": "{count}分钟前",
     "hoursAgo": "{count}小时前",
-    "daysAgo": "{count}天前"
+    "daysAgo": "{count}天前",
+    "loadFailed": "加载评论失败",
+    "serviceUnavailable": "评论服务暂时不可用",
+    "retry": "重试"
   },
   "chat": {
     "title": "消息",

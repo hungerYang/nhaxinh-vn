@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const submission = submissionsData.find(s => s.id === id);
   if (!submission) return {};
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://nhaxinh.vn';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hungeryang.github.io/nhaxinh-vn';
   const t = {
     vi: 'Bài đăng của người dùng',
     zh: '用户投稿',

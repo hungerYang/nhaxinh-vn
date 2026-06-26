@@ -28,6 +28,7 @@ export default function CommentSection({ articleId }: CommentSectionProps) {
   const [newComment, setNewComment] = useState('');
   const [loading, setLoading] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     fetchComments();
@@ -35,13 +36,18 @@ export default function CommentSection({ articleId }: CommentSectionProps) {
 
   async function fetchComments() {
     setLoading(true);
+    setError(null);
     try {
       const res = await fetch(`${API_BASE}/api/comments/${articleId}`);
       if (res.ok) {
         const data = await res.json();
         setComments(data.comments || []);
+      } else {
+        setError(t('loadFailed'));
       }
-    } catch { /* ignore */ }
+    } catch {
+      setError(t('serviceUnavailable'));
+    }
     setLoading(false);
   }
 
@@ -160,6 +166,16 @@ export default function CommentSection({ articleId }: CommentSectionProps) {
       {/* Comments List */}
       {loading ? (
         <div className="text-center py-8 text-gray-400">{t('loading')}</div>
+      ) : error ? (
+        <div className="text-center py-8">
+          <p className="text-gray-400 mb-3">{error}</p>
+          <button
+            onClick={fetchComments}
+            className="text-sm text-[#2D5A3D] hover:underline font-medium"
+          >
+            {t('retry')}
+          </button>
+        </div>
       ) : comments.length === 0 ? (
         <div className="text-center py-8 text-gray-400">{t('noComments')}</div>
       ) : (

@@ -3,8 +3,29 @@ const multer = require('multer');
 const crypto = require('crypto');
 const path = require('path');
 const fs = require('fs');
+const jwt = require('jsonwebtoken');
 
 const router = express.Router();
+
+const JWT_SECRET = process.env.JWT_SECRET;
+
+// Middleware: verify user JWT
+function requireUser(req, res, next) {
+  const authHeader = req.headers.authorization;
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return res.status(401).json({ success: false, error: 'Authorization required' });
+  }
+  try {
+    const decoded = jwt.verify(authHeader.split(' ')[1], JWT_SECRET);
+    if (decoded.role !== 'user' && decoded.role !== 'admin') {
+      return res.status(401).json({ success: false, error: 'Unauthorized' });
+    }
+    req.user = decoded;
+    next();
+  } catch {
+    return res.status(401).json({ success: false, error: 'Invalid token' });
+  }
+}
 
 // Ensure uploads directory exists
 const UPLOADS_DIR = path.join(__dirname, '..', 'public', 'uploads');
@@ -68,7 +89,7 @@ const avatarUpload = multer({
   }
 });
 
-router.post('/upload/avatar', avatarUpload.single('avatar'), (req, res) => {
+router.post('/upload/avatar', requireUser, avatarUpload.single('avatar'), (req, res) => {
   if (!req.file) {
     return res.status(400).json({ success: false, error: 'Không có file nào được tải lên.' });
   }
@@ -78,7 +99,7 @@ router.post('/upload/avatar', avatarUpload.single('avatar'), (req, res) => {
 });
 
 // POST /api/upload
-router.post('/upload', upload.single('image'), (req, res) => {
+router.post('/upload', requireUser, upload.single('image'), (req, res) => {
   if (!req.file) {
     return res.status(400).json({ success: false, error: 'Không có file nào được tải lên.' });
   }

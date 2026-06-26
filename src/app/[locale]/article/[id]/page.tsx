@@ -58,7 +58,7 @@ export default async function ArticlePage({ params }: Props) {
     notFound();
   }
 
-  const relatedArticles = getRelatedContent(id, article.style, 3);
+  const relatedArticles = getRelatedContent(id, article.style, 3, locale);
   const structuredData = generateStructuredData({
     locale: await params.then(p => p.locale),
     title: article.title,
@@ -72,7 +72,7 @@ export default async function ArticlePage({ params }: Props) {
 
   return (
     <>
-      <ArticleSchema article={article} />
+      <ArticleSchema article={article} locale={locale} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

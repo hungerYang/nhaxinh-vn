@@ -4,7 +4,9 @@ import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import articles from '@/data/articles.json';
+import articlesVi from '@/data/articles.json';
+import articlesZh from '@/data/articles.zh.json';
+import articlesEn from '@/data/articles.en.json';
 import { locales } from '@/i18n/config';
 
 export const dynamic = 'force-static';
@@ -84,7 +86,14 @@ export default async function RoomPage({ params }: Props) {
   const t = await getTranslations({ locale, namespace: 'rooms' });
   const roomName = t(roomKey);
 
-  const filteredArticles = (articles as Article[]).filter(
+  const articlesByLocale: Record<string, Article[]> = {
+    vi: articlesVi as Article[],
+    zh: articlesZh as Article[],
+    en: articlesEn as Article[],
+  };
+  const localeArticles = articlesByLocale[locale] || articlesByLocale['vi'];
+
+  const filteredArticles = localeArticles.filter(
     (article) => article.room === id || article.room === 'all'
   );
 

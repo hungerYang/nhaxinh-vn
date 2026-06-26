@@ -24,7 +24,7 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
 
   // Initialize Fuse.js
   useEffect(() => {
-    const items = getAllSearchableItems();
+    const items = getAllSearchableItems(locale);
     const fuseInstance = new Fuse(items, {
       keys: [
         { name: 'title', weight: 2 },
@@ -38,7 +38,7 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
       includeScore: true,
     });
     setFuse(fuseInstance);
-  }, []);
+  }, [locale]);
 
   // Focus input when opening
   useEffect(() => {
@@ -71,6 +71,8 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
     onClose();
     if (item.type === 'product') {
       window.open('https://shopee.vn', '_blank');
+    } else if (item.type === 'submission') {
+      router.push(`/${locale}/submission/${item.id}/`);
     } else {
       router.push(`/${locale}/article/${item.id}/`);
     }

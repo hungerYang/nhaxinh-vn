@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-const SITE_URL = 'https://nhaxinh.vn';
+const SITE_URL = 'https://hungeryang.github.io/nhaxinh-vn';
 const SITE_NAME = 'NhàXinh.vn';
 
 interface SEOPageConfig {

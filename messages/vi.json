@@ -65,13 +65,13 @@
     "loadMore": "Tải thêm",
     "noResults": "Không có kết quả",
     "tryDifferentFilter": "Thử chọn bộ lọc khác",
-    "styleTips": "避坑指南",
-    "styleBudget": "省钱策略",
-    "styleMinimalist": "极简主义",
-    "styleScandinavian": "北欧风格",
-    "styleIndustrial": "工业风格",
-    "styleJapanese": "日式和风",
-    "styleBohemian": "波西米亚"
+    "styleTips": "Mẹo tránh lỗi",
+    "styleBudget": "Chiến lược tiết kiệm",
+    "styleMinimalist": "Phong cách tối giản",
+    "styleScandinavian": "Phong cách Bắc Âu",
+    "styleIndustrial": "Phong cách công nghiệp",
+    "styleJapanese": "Phong cách Nhật Bản",
+    "styleBohemian": "Phong cách Bohemian"
   },
   "video": {
     "title": "Video nổi bật",
@@ -116,7 +116,8 @@
     "subscribed": "Đã đăng ký!",
     "terms": "Điều khoản",
     "policy": "Chính sách",
-    "address": "Quận 1, TP. Hồ Chí Minh"
+    "address": "Quận 1, TP. Hồ Chí Minh",
+    "affiliateDisclosure": "Một số liên kết trên trang này là liên kết tiếp thị. Chúng tôi có thể nhận hoa hồng khi bạn mua qua các liên kết này."
   },
   "search": {
     "placeholder": "Tìm kiếm bài viết, sản phẩm, phong cách...",
@@ -124,7 +125,7 @@
     "noResults": "Không tìm thấy kết quả phù hợp",
     "resultCount": "kết quả",
     "typeArticle": "Bài viết",
-    "typeSubmission": "Ngườ dùng",
+    "typeSubmission": "Người dùng",
     "typeProduct": "Sản phẩm",
     "suggestedTags": ["phòng khách", "phong cách Pháp", "gỗ tự nhiên", "ban công", "sơn tường"]
   },
@@ -134,7 +135,7 @@
     "styleFrench": "Pháp thuộc địa",
     "readTime": "phút đọc",
     "tableOfContents": "Mục lục",
-    "userSubmitted": "Ngườ dùng đăng",
+    "userSubmitted": "Người dùng đăng",
     "editorialTeam": "NhàXinh Editorial",
     "like": "Thích",
     "liked": "Đã thích",
@@ -242,7 +243,10 @@
     "justNow": "Vừa xong",
     "minutesAgo": "{count} phút trước",
     "hoursAgo": "{count} giờ trước",
-    "daysAgo": "{count} ngày trước"
+    "daysAgo": "{count} ngày trước",
+    "loadFailed": "Không thể tải bình luận",
+    "serviceUnavailable": "Dịch vụ bình luận tạm thời không khả dụng",
+    "retry": "Thử lại"
   },
   "chat": {
     "title": "Tin nhắn",

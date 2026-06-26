@@ -4,12 +4,10 @@ import { useState, useMemo, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { Heart, Bookmark, Loader2, Images } from 'lucide-react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import articlesData from '@/data/articles.json';
-import submissionsData from '@/data/submissions.json';
+import { getAllContent, type UnifiedContentItem } from '@/data/allContent';
 
 const ITEMS_PER_PAGE = 12;
-
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || '/nhaxinh-vn';
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
 
 interface StyleItem {
@@ -24,20 +22,7 @@ interface StyleItem {
 
 type FilterType = 'all' | string;
 
-interface ContentItem {
-  id: string;
-  title: string;
-  description?: string;
-  image: string;
-  images?: string[];
-  style?: string;
-  room?: string;
-  date: string;
-  author: string;
-  authorAvatar?: string;
-  likes?: number;
-  type: 'article' | 'submission';
-}
+type ContentItem = UnifiedContentItem;
 
 function getStyleTag(style?: string, styles?: StyleItem[]) {
   if (!style || !styles) return null;
@@ -51,7 +36,17 @@ function MasonryCard({ item, t, styles }: { item: ContentItem; t: ReturnType<typ
   const styleTag = getStyleTag(item.style, styles);
   const hasMultipleImages = item.images && item.images.length > 1;
   const authorInitial = item.author.charAt(0).toUpperCase();
-  const likeCount = useMemo(() => item.likes ?? Math.floor(Math.random() * 50) + 1, [item.id, item.likes]);
+  // Ensure image paths include basePath for static export
+  const imageUrl = item.image.startsWith(BASE_PATH) ? item.image : `${BASE_PATH}${item.image}`;
+  const likeCount = useMemo(() => {
+    if (item.likes != null) return item.likes;
+    // Deterministic hash-based fallback so likes are stable across renders
+    let hash = 0;
+    for (let i = 0; i < item.id.length; i++) {
+      hash = ((hash << 5) - hash + item.id.charCodeAt(i)) | 0;
+    }
+    return Math.abs(hash) % 50 + 1;
+  }, [item.id, item.likes]);
 
   return (
     <Link
@@ -62,7 +57,7 @@ function MasonryCard({ item, t, styles }: { item: ContentItem; t: ReturnType<typ
         {/* Image Area */}
         <div className="relative overflow-hidden rounded-t-xl">
           <img
-            src={item.image}
+            src={imageUrl}
             alt={item.title}
             className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
@@ -168,17 +163,7 @@ export default function ContentCards() {
     loadStyles();
   }, []);
 
-  const allItems = useMemo(() => {
-    const articles = articlesData.map((a) => ({
-      ...a,
-      type: 'article' as const,
-    }));
-    const submissions = submissionsData.map((s) => ({
-      ...s,
-      type: 'submission' as const,
-    }));
-    return [...articles, ...submissions];
-  }, []);
+  const allItems = useMemo(() => getAllContent(locale), [locale]);
 
   const filteredItems = useMemo(() => {
     if (activeFilter === 'all') return allItems;

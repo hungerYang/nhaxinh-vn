@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import ServiceWorkerRegistration from "@/components/analytics/ServiceWorkerRegistration";
 import PreconnectHints from "@/components/performance/PreconnectHints";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nhaxinh.vn"),
+  metadataBase: new URL("https://hungeryang.github.io/nhaxinh-vn"),
   title: "NhàXinh.vn",
   description: "Khám phá ý tưởng thiết kế nội thất đẹp cho ngôi nhà Việt. Phong cách Đông Nam Á hiện đại và Pháp thuộc địa.",
   keywords: ["nội thất", "thiết kế nội thất", "trang trí nhà", "phong cách Đông Nam Á", "phong cách Pháp thuộc địa", "indochine", "nhà đẹp Việt Nam"],
@@ -64,13 +63,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className="h-full antialiased">
+    <>
       <PreconnectHints />
-      <body className="min-h-full flex flex-col font-sans">
-        <GoogleAnalytics />
-        <ServiceWorkerRegistration />
-        {children}
-      </body>
-    </html>
+      <ServiceWorkerRegistration />
+      {children}
+    </>
   );
 }

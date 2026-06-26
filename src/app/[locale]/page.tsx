@@ -1,15 +1,44 @@
 import type { Metadata } from 'next';
+import nextDynamic from 'next/dynamic';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import HeroSection from '@/components/sections/HeroSection';
 import RoomNavigator from '@/components/sections/RoomNavigator';
 import ContentCards from '@/components/sections/ContentCards';
-import VideoShowcase from '@/components/sections/VideoShowcase';
-import AffiliateProducts from '@/components/sections/AffiliateProducts';
 import Partnerships from '@/components/sections/Partnerships';
 import AdSlot from '@/components/shared/AdSlot';
 import { locales } from '@/i18n/config';
 import { generateSEOMetadata, generateStructuredData } from '@/lib/seo';
+
+const VideoShowcase = nextDynamic(() => import('@/components/sections/VideoShowcase'), {
+  loading: () => (
+    <section className="py-12 sm:py-16 bg-[#F5F0E8]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="h-8 bg-gray-200 rounded-lg w-48 mx-auto mb-4 animate-pulse" />
+        <div className="h-4 bg-gray-200 rounded w-64 mx-auto mb-8 animate-pulse" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {Array.from({ length: 3 }).map((_, i) => (
+            <div key={i} className="aspect-video bg-gray-200 rounded-xl animate-pulse" />
+          ))}
+        </div>
+      </div>
+    </section>
+  ),
+});
+const AffiliateProducts = nextDynamic(() => import('@/components/sections/AffiliateProducts'), {
+  loading: () => (
+    <section className="py-12 sm:py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="h-8 bg-gray-200 rounded-lg w-48 mx-auto mb-8 animate-pulse" />
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <div key={i} className="aspect-[3/4] bg-gray-200 rounded-xl animate-pulse" />
+          ))}
+        </div>
+      </div>
+    </section>
+  ),
+});
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
