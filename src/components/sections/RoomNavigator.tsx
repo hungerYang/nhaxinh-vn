@@ -3,6 +3,7 @@
 import { useTranslations, useLocale } from 'next-intl';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import OptimizedImage from '@/components/shared/OptimizedImage';
 
 const rooms = [
   { id: 'living', nameKey: 'livingRoom', count: 9, image: '/nhaxinh-vn/images/rooms/living.jpg' },
@@ -33,9 +34,7 @@ export default function RoomNavigator() {
               href={`/${locale}/rooms/${room.id}`}
               className="group block relative aspect-square rounded-xl sm:rounded-2xl overflow-hidden cursor-pointer"
             >
-              {/* Background Image using standard img tag for reliable loading */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <OptimizedImage
                 src={room.image}
                 alt={t(room.nameKey)}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"

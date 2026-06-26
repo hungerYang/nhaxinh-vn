@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import OptimizedImage from './OptimizedImage';
 
 interface HoverRevealLink {
   label: string;
@@ -27,9 +28,8 @@ export default function HoverRevealCard({
 }: HoverRevealCardProps) {
   return (
     <div className="group relative w-full h-full overflow-hidden rounded-2xl cursor-pointer">
-      {/* Background Image using img tag for fetchpriority support */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      {/* Background Image */}
+      <OptimizedImage
         src={image}
         alt=""
         role="presentation"

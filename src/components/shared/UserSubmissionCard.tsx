@@ -1,7 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { Heart, User } from 'lucide-react';
+import OptimizedImage from './OptimizedImage';
 
 interface UserSubmissionCardProps {
   coverImage: string;
@@ -23,15 +23,12 @@ export default function UserSubmissionCard({
   likes,
 }: UserSubmissionCardProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+    <div
       className="group relative bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
     >
       {/* Image */}
       <div className="relative aspect-[4/3] overflow-hidden">
-        <img
+        <OptimizedImage
           src={coverImage}
           alt={title}
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -83,6 +80,6 @@ export default function UserSubmissionCard({
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

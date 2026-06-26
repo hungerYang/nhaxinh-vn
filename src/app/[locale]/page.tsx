@@ -3,13 +3,52 @@ import nextDynamic from 'next/dynamic';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import HeroSection from '@/components/sections/HeroSection';
-import RoomNavigator from '@/components/sections/RoomNavigator';
-import ContentCards from '@/components/sections/ContentCards';
-import Partnerships from '@/components/sections/Partnerships';
 import AdSlot from '@/components/shared/AdSlot';
 import { locales } from '@/i18n/config';
 import { generateSEOMetadata, generateStructuredData } from '@/lib/seo';
 
+const RoomNavigator = nextDynamic(() => import('@/components/sections/RoomNavigator'), {
+  loading: () => (
+    <section className="py-12 sm:py-16 lg:py-20 bg-[#F5F0E8]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="h-8 bg-gray-200 rounded-lg w-48 mx-auto mb-8 animate-pulse" />
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div key={i} className="aspect-square bg-gray-200 rounded-xl animate-pulse" />
+          ))}
+        </div>
+      </div>
+    </section>
+  ),
+});
+const ContentCards = nextDynamic(() => import('@/components/sections/ContentCards'), {
+  loading: () => (
+    <section className="py-12 sm:py-16 lg:py-20 bg-[#fafafa]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="h-8 bg-gray-200 rounded-lg w-48 mx-auto mb-8 animate-pulse" />
+        <div className="columns-2 sm:columns-3 lg:columns-4 gap-4">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div key={i} className="mb-4 aspect-[3/4] bg-gray-200 rounded-xl animate-pulse" />
+          ))}
+        </div>
+      </div>
+    </section>
+  ),
+});
+const Partnerships = nextDynamic(() => import('@/components/sections/Partnerships'), {
+  loading: () => (
+    <section className="py-12 sm:py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="h-8 bg-gray-200 rounded-lg w-48 mx-auto mb-8 animate-pulse" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {Array.from({ length: 3 }).map((_, i) => (
+            <div key={i} className="aspect-[16/10] bg-gray-200 rounded-xl animate-pulse" />
+          ))}
+        </div>
+      </div>
+    </section>
+  ),
+});
 const VideoShowcase = nextDynamic(() => import('@/components/sections/VideoShowcase'), {
   loading: () => (
     <section className="py-12 sm:py-16 bg-[#F5F0E8]">

@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
-import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import HoverRevealCard from '../shared/HoverRevealCard';
 
@@ -44,19 +43,25 @@ const slides = [
 export default function HeroSection() {
   const t = useTranslations('hero');
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const goToSlide = useCallback((index: number) => {
+    if (index === currentSlide || isTransitioning) return;
+    setIsTransitioning(true);
+    // Small delay to allow fade-out before switching content
+    setTimeout(() => {
+      setCurrentSlide(index);
+      setIsTransitioning(false);
+    }, 300);
+  }, [currentSlide, isTransitioning]);
 
   const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  }, []);
+    goToSlide((currentSlide + 1) % slides.length);
+  }, [currentSlide, goToSlide]);
 
   const prevSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  }, []);
-
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
+    goToSlide((currentSlide - 1 + slides.length) % slides.length);
+  }, [currentSlide, goToSlide]);
 
   useEffect(() => {
     const timer = setInterval(nextSlide, 5000);
@@ -71,25 +76,21 @@ export default function HeroSection() {
 
   return (
     <section className="relative w-full h-[60vh] sm:h-[70vh] lg:h-[85vh]">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentSlide}
-          initial={{ opacity: isLoaded ? 0 : 1 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="absolute inset-0"
-        >
-          <HoverRevealCard
-            image={currentSlideData.image}
-            bgGradient={currentSlideData.bgGradient}
-            title={t(currentSlideData.titleKey)}
-            description={t(currentSlideData.descriptionKey)}
-            links={links}
-            overlayOpacity={0.3}
-          />
-        </motion.div>
-      </AnimatePresence>
+      {/* Slide content with CSS fade transition */}
+      <div
+        className={`absolute inset-0 transition-opacity duration-300 ${
+          isTransitioning ? 'opacity-0' : 'opacity-100'
+        }`}
+      >
+        <HoverRevealCard
+          image={currentSlideData.image}
+          bgGradient={currentSlideData.bgGradient}
+          title={t(currentSlideData.titleKey)}
+          description={t(currentSlideData.descriptionKey)}
+          links={links}
+          overlayOpacity={0.3}
+        />
+      </div>
 
       {/* Navigation Arrows */}
       <button
@@ -112,7 +113,7 @@ export default function HeroSection() {
         {slides.map((_, index) => (
           <button
             key={index}
-            onClick={() => setCurrentSlide(index)}
+            onClick={() => goToSlide(index)}
             className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 ${
               index === currentSlide
                 ? 'w-6 sm:w-8 bg-white'

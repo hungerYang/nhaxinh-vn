@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { Play, X, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
+import OptimizedImage from '@/components/shared/OptimizedImage';
 import { useState, useRef } from 'react';
 import { trackVideoPlay } from '@/lib/analytics';
 
@@ -84,7 +85,7 @@ function VideoCard({ video, index }: { video: VideoItem; index: number }) {
           <>
             {/* Thumbnail */}
             {!imgError ? (
-              <img
+              <OptimizedImage
                 src={video.thumbnail}
                 alt={video.title}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"

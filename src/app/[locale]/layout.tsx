@@ -1,9 +1,16 @@
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { NextIntlClientProvider } from 'next-intl';
+import { Noto_Sans } from 'next/font/google';
 import WebSiteSchema from '@/components/seo/WebSiteSchema';
 import { AuthProvider } from '@/components/auth/AuthProvider';
 import WebVitalsMonitor from '@/components/analytics/WebVitalsMonitor';
+
+const notoSans = Noto_Sans({
+  subsets: ['vietnamese', 'latin'],
+  display: 'swap',
+  variable: '--font-noto-sans',
+});
 
 const ChatWidget = dynamic(() => import('@/components/shared/ChatWidget'));
 
@@ -51,8 +58,16 @@ export default async function LocaleLayout({
   const messages = (await import(`../../../messages/${locale}.json`)).default;
 
   return (
-    <html lang={locale} className="h-full antialiased">
-      <body className="min-h-full flex flex-col font-sans">
+    <html lang={locale} className={`h-full antialiased ${notoSans.variable}`}>
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/nhaxinh-vn/images/hero/hero-1.jpg"
+          fetchPriority="high"
+        />
+      </head>
+      <body className="min-h-full flex flex-col font-sans" style={{ fontFamily: 'var(--font-noto-sans), system-ui, sans-serif' }}>
         <NextIntlClientProvider messages={messages} locale={locale}>
           <AuthProvider>
             <WebVitalsMonitor />

@@ -1,9 +1,10 @@
-const CACHE_NAME = 'nhaxinh-v1';
+const CACHE_NAME = 'nhaxinh-v2';
+const BASE = '/nhaxinh-vn';
 const STATIC_ASSETS = [
-  '/',
-  '/vi/',
-  '/zh/',
-  '/en/',
+  `${BASE}/`,
+  `${BASE}/vi/`,
+  `${BASE}/zh/`,
+  `${BASE}/en/`,
 ];
 
 // Install: cache static assets
@@ -69,7 +70,7 @@ self.addEventListener('fetch', (event) => {
       }).catch(() => {
         // Return offline fallback for navigation requests
         if (request.mode === 'navigate') {
-          return caches.match('/vi/');
+          return caches.match(`${BASE}/vi/`);
         }
         return new Response('Offline', { status: 503 });
       });

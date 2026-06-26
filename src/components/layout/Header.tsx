@@ -1,17 +1,19 @@
 'use client';
 
 import { useState, useEffect, useMemo, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import { Search, Menu, X, Globe, Bookmark, ChevronDown, User, LogOut } from 'lucide-react';
 import { locales, localeNames, type Locale } from '@/i18n/config';
-import SearchOverlay from '@/components/shared/SearchOverlay';
 import { useFavorites } from '@/hooks/useFavorites';
 import { trackLanguageSwitch } from '@/lib/analytics';
 import { useAuth } from '@/components/auth/AuthProvider';
-import LoginModal from '@/components/auth/LoginModal';
-import AvatarSelector from '@/components/auth/AvatarSelector';
+
+const SearchOverlay = dynamic(() => import('@/components/shared/SearchOverlay'));
+const LoginModal = dynamic(() => import('@/components/auth/LoginModal'));
+const AvatarSelector = dynamic(() => import('@/components/auth/AvatarSelector'));
 
 export default function Header() {
   const t = useTranslations('nav');

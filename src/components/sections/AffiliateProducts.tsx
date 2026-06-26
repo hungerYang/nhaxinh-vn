@@ -3,6 +3,7 @@
 import { useState, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { ExternalLink, ShoppingBag, ArrowRight } from 'lucide-react';
+import OptimizedImage from '@/components/shared/OptimizedImage';
 import products from '@/data/products.json';
 import { trackAffiliateClick } from '@/lib/analytics';
 
@@ -111,7 +112,7 @@ export default function AffiliateProducts() {
               >
                 {/* Image with IKEA-style hover */}
                 <div className="relative aspect-square overflow-hidden bg-[#F5F0E8]">
-                  <img
+                  <OptimizedImage
                     src={product.image}
                     alt={product.name}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"

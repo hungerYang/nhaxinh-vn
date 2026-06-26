@@ -5,6 +5,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { Heart, Bookmark, Loader2, Images } from 'lucide-react';
 import Link from 'next/link';
 import { getAllContent, type UnifiedContentItem } from '@/data/allContent';
+import OptimizedImage from '@/components/shared/OptimizedImage';
 
 const ITEMS_PER_PAGE = 12;
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || '/nhaxinh-vn';
@@ -56,7 +57,7 @@ function MasonryCard({ item, t, styles }: { item: ContentItem; t: ReturnType<typ
       <div className="bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-xl hover:shadow-gray-200/50 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
         {/* Image Area */}
         <div className="relative overflow-hidden rounded-t-xl">
-          <img
+          <OptimizedImage
             src={imageUrl}
             alt={item.title}
             className="w-full object-cover transition-transform duration-500 group-hover:scale-105"

@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { ArrowRight, Building2, Palette, Ruler, Phone, Mail, MapPin } from 'lucide-react';
+import OptimizedImage from '@/components/shared/OptimizedImage';
 
 const partners = [
   {
@@ -57,7 +58,7 @@ export default function Partnerships() {
               >
                 {/* Image */}
                 <div className="relative aspect-[16/10] overflow-hidden">
-                  <img
+                  <OptimizedImage
                     src={partner.image}
                     alt={partner.name}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
