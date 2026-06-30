@@ -63,7 +63,7 @@ export default async function LocaleLayout({
         <link
           rel="preload"
           as="image"
-          href="/nhaxinh-vn/images/hero/hero-1.jpg"
+          href="/images/hero/hero-1.jpg"
           fetchPriority="high"
         />
       </head>

@@ -1,11 +1,11 @@
-/nhaxinh-vn/_next/static/*
+/_next/static/*
   Cache-Control: public, max-age=31536000, immutable
 
-/nhaxinh-vn/images/*
+/images/*
   Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
 
-/nhaxinh-vn/avatars/*
+/avatars/*
   Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
 
-/nhaxinh-vn/icons/*
+/icons/*
   Cache-Control: public, max-age=604800

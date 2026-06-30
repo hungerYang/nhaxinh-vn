@@ -5,8 +5,6 @@ const withNextIntl = createNextIntlPlugin();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/nhaxinh-vn',
-  assetPrefix: '/nhaxinh-vn',
   images: {
     unoptimized: true,
   },
