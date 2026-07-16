@@ -71,7 +71,7 @@ export default function Header() {
   }, []);
 
   // Compute locale switch URL for a given target locale
-  const basePath = '/nhaxinh-vn';
+  const basePath = '';
   const getLocaleUrl = useMemo(() => {
     return (targetLocale: string) => {
       let currentPath = pathname || '/';

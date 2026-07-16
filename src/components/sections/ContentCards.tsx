@@ -10,7 +10,7 @@ import { useLikes } from '@/hooks/useLikes';
 import { useFavorites } from '@/hooks/useFavorites';
 
 const ITEMS_PER_PAGE = 12;
-const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || '/nhaxinh-vn';
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || '';
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
 
 interface StyleItem {

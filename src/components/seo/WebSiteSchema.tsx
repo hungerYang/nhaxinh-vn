@@ -4,12 +4,12 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'NhàXinh.vn',
-  url: 'https://hungeryang.github.io/nhaxinh-vn',
+  url: 'https://nhaxinh-vn.pages.dev',
   description: "Vietnam's interior design sharing platform",
   inLanguage: ['vi', 'zh', 'en'],
   potentialAction: {
     '@type': 'SearchAction',
-    target: 'https://hungeryang.github.io/nhaxinh-vn/vi/?search={search_term_string}',
+    target: 'https://hungeryang.github.io/vi/?search={search_term_string}',
     'query-input': 'required name=search_term_string',
   },
 };

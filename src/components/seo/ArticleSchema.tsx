@@ -12,7 +12,7 @@ interface ArticleSchemaProps {
   locale: string;
 }
 
-const SITE_URL = 'https://hungeryang.github.io/nhaxinh-vn';
+const SITE_URL = 'https://nhaxinh-vn.pages.dev';
 const SITE_NAME = 'NhàXinh.vn';
 
 export default function ArticleSchema({ article, locale }: ArticleSchemaProps) {

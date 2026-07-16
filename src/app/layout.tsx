@@ -4,7 +4,7 @@ import PreconnectHints from "@/components/performance/PreconnectHints";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://hungeryang.github.io/nhaxinh-vn"),
+  metadataBase: new URL("https://nhaxinh-vn.pages.dev"),
   title: "NhàXinh.vn",
   description: "Khám phá ý tưởng thiết kế nội thất đẹp cho ngôi nhà Việt. Phong cách Đông Nam Á hiện đại và Pháp thuộc địa.",
   keywords: ["nội thất", "thiết kế nội thất", "trang trí nhà", "phong cách Đông Nam Á", "phong cách Pháp thuộc địa", "indochine", "nhà đẹp Việt Nam"],

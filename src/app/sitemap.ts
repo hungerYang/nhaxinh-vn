@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import articles from '@/data/articles.json';
 import submissions from '@/data/submissions.json';
 
-const SITE_URL = 'https://hungeryang.github.io/nhaxinh-vn';
+const SITE_URL = 'https://nhaxinh-vn.pages.dev';
 const locales = ['vi', 'zh', 'en'];
 
 export const dynamic = 'force-static';

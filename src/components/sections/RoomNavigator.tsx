@@ -6,14 +6,14 @@ import Link from 'next/link';
 import OptimizedImage from '@/components/shared/OptimizedImage';
 
 const rooms = [
-  { id: 'living', nameKey: 'livingRoom', count: 9, image: '/nhaxinh-vn/images/rooms/living.jpg' },
-  { id: 'bedroom', nameKey: 'bedroom', count: 9, image: '/nhaxinh-vn/images/rooms/bedroom.jpg' },
-  { id: 'kitchen', nameKey: 'kitchen', count: 9, image: '/nhaxinh-vn/images/rooms/kitchen.jpg' },
-  { id: 'dining', nameKey: 'diningRoom', count: 9, image: '/nhaxinh-vn/images/rooms/dining.jpg' },
-  { id: 'balcony', nameKey: 'balcony', count: 8, image: '/nhaxinh-vn/images/rooms/balcony.jpg' },
-  { id: 'study', nameKey: 'study', count: 8, image: '/nhaxinh-vn/images/rooms/study.jpg' },
-  { id: 'bathroom', nameKey: 'bathroom', count: 9, image: '/nhaxinh-vn/images/rooms/bathroom.jpg' },
-  { id: 'entryway', nameKey: 'entryway', count: 8, image: '/nhaxinh-vn/images/rooms/entryway.jpg' },
+  { id: 'living', nameKey: 'livingRoom', count: 9, image: '/images/rooms/living.jpg' },
+  { id: 'bedroom', nameKey: 'bedroom', count: 9, image: '/images/rooms/bedroom.jpg' },
+  { id: 'kitchen', nameKey: 'kitchen', count: 9, image: '/images/rooms/kitchen.jpg' },
+  { id: 'dining', nameKey: 'diningRoom', count: 9, image: '/images/rooms/dining.jpg' },
+  { id: 'balcony', nameKey: 'balcony', count: 8, image: '/images/rooms/balcony.jpg' },
+  { id: 'study', nameKey: 'study', count: 8, image: '/images/rooms/study.jpg' },
+  { id: 'bathroom', nameKey: 'bathroom', count: 9, image: '/images/rooms/bathroom.jpg' },
+  { id: 'entryway', nameKey: 'entryway', count: 8, image: '/images/rooms/entryway.jpg' },
 ];
 
 export default function RoomNavigator() {
