@@ -6,7 +6,7 @@ import { defaultLocale } from '@/i18n/config';
 export default function RootPage() {
   useEffect(() => {
     // Redirect to default locale
-    const target = `/${defaultLocale}/`;
+    const target = `/nhaxinh-vn/${defaultLocale}/`;
     if (window.location.pathname !== target) {
       window.location.href = target;
     }

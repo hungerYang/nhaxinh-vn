@@ -6,6 +6,8 @@ import { Heart, Bookmark, Loader2, Images } from 'lucide-react';
 import Link from 'next/link';
 import { getAllContent, type UnifiedContentItem } from '@/data/allContent';
 import OptimizedImage from '@/components/shared/OptimizedImage';
+import { useLikes } from '@/hooks/useLikes';
+import { useFavorites } from '@/hooks/useFavorites';
 
 const ITEMS_PER_PAGE = 12;
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || '/nhaxinh-vn';
@@ -34,20 +36,17 @@ function getStyleTag(style?: string, styles?: StyleItem[]) {
 
 function MasonryCard({ item, t, styles }: { item: ContentItem; t: ReturnType<typeof useTranslations>; styles?: StyleItem[] }) {
   const locale = useLocale();
+  const { toggleLike, isLiked } = useLikes();
+  const { toggleFavorite, isFavorite } = useFavorites();
+  const liked = isLiked(item.id);
+  const favorited = isFavorite(item.id);
   const styleTag = getStyleTag(item.style, styles);
   const hasMultipleImages = item.images && item.images.length > 1;
   const authorInitial = item.author.charAt(0).toUpperCase();
   // Ensure image paths include basePath for static export
   const imageUrl = item.image.startsWith(BASE_PATH) ? item.image : `${BASE_PATH}${item.image}`;
-  const likeCount = useMemo(() => {
-    if (item.likes != null) return item.likes;
-    // Deterministic hash-based fallback so likes are stable across renders
-    let hash = 0;
-    for (let i = 0; i < item.id.length; i++) {
-      hash = ((hash << 5) - hash + item.id.charCodeAt(i)) | 0;
-    }
-    return Math.abs(hash) % 50 + 1;
-  }, [item.id, item.likes]);
+  const baseLikeCount = item.likes ?? 0;
+  const displayLikeCount = liked ? baseLikeCount + 1 : baseLikeCount;
 
   return (
     <Link
@@ -119,20 +118,26 @@ function MasonryCard({ item, t, styles }: { item: ContentItem; t: ReturnType<typ
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
+                toggleLike(item.id);
               }}
-              className="inline-flex items-center gap-1 text-gray-400 hover:text-red-400 transition-colors"
+              className={`inline-flex items-center gap-1 transition-colors ${
+                liked ? 'text-red-500' : 'text-gray-400 hover:text-red-400'
+              }`}
             >
-              <Heart className="w-3.5 h-3.5" />
-              <span className="text-xs">{likeCount}</span>
+              <Heart className={`w-3.5 h-3.5 ${liked ? 'fill-current' : ''}`} />
+              <span className="text-xs">{displayLikeCount}</span>
             </button>
             <button
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
+                toggleFavorite(item.id);
               }}
-              className="text-gray-400 hover:text-[#2D5A3D] transition-colors"
+              className={`transition-colors ${
+                favorited ? 'text-[#2D5A3D]' : 'text-gray-400 hover:text-[#2D5A3D]'
+              }`}
             >
-              <Bookmark className="w-3.5 h-3.5" />
+              <Bookmark className={`w-3.5 h-3.5 ${favorited ? 'fill-current' : ''}`} />
             </button>
           </div>
         </div>

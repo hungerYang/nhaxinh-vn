@@ -2,6 +2,8 @@ import articlesDataVi from './articles.json';
 import articlesDataZh from './articles.zh.json';
 import articlesDataEn from './articles.en.json';
 import submissionsData from './submissions.json';
+import submissionsDataZh from './submissions.zh.json';
+import submissionsDataEn from './submissions.en.json';
 
 export interface ArticleItem {
   id: string;
@@ -48,12 +50,17 @@ export interface UnifiedContentItem {
 }
 
 const articles: ArticleItem[] = articlesDataVi as ArticleItem[];
-const submissions: SubmissionItem[] = submissionsData as SubmissionItem[];
 
 const articlesByLocale: Record<string, ArticleItem[]> = {
   vi: articlesDataVi as ArticleItem[],
   zh: articlesDataZh as ArticleItem[],
   en: articlesDataEn as ArticleItem[],
+};
+
+const submissionsByLocale: Record<string, SubmissionItem[]> = {
+  vi: submissionsData as SubmissionItem[],
+  zh: submissionsDataZh as SubmissionItem[],
+  en: submissionsDataEn as SubmissionItem[],
 };
 
 export function getLocalizedArticle(id: string, locale: string): UnifiedContentItem | undefined {
@@ -70,9 +77,10 @@ export function getAllContent(locale: string = 'vi'): UnifiedContentItem[] {
     type: 'article' as const,
   }));
 
-  const submissionItems: UnifiedContentItem[] = submissions.map((s) => ({
+  const localeSubmissions = submissionsByLocale[locale] || submissionsByLocale['vi'];
+  const submissionItems: UnifiedContentItem[] = localeSubmissions.map((s) => ({
     ...s,
-    content: s.content || s.description + '\n\n(Câu chuyện chi tiết sẽ được cập nhật sau khi ngườii dùng gửi thêm thông tin.)',
+    content: s.content || s.description + '\n\n(Câu chuyện chi tiết sẽ được cập nhật sau khi người dùng gửi thêm thông tin.)',
     authorAvatar: s.authorAvatar || '',
     readTime: 3,
     type: 'submission' as const,

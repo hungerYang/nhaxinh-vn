@@ -8,6 +8,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  basePath: '/nhaxinh-vn',
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
 };

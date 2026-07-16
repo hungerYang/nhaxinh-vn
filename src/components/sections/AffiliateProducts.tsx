@@ -229,12 +229,8 @@ export default function AffiliateProducts() {
           })}
         </div>
 
-        {/* Affiliate Disclosure Banner */}
-        <div className="mt-8 sm:mt-10 text-center">
-          <p className="text-xs text-[#999] max-w-2xl mx-auto leading-relaxed">
-            {t('affiliate.disclosure')}
-          </p>
-        </div>
+        {/* Visual separator before footer */}
+        <div className="mt-8 sm:mt-10 border-b border-gray-100" />
       </div>
     </section>
   );

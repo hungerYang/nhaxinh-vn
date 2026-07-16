@@ -1,0 +1,41 @@
+[
+  {
+    "id": "s1",
+    "title": "45m² Minimalist Apartment",
+    "description": "I transformed my small apartment into an airy living space with white and wood tones.",
+    "image": "/nhaxinh-vn/images/articles/sub-1.jpg",
+    "images": ["/nhaxinh-vn/images/articles/sub-1.jpg"],
+    "author": "Minh Anh",
+    "authorAvatar": "",
+    "likes": 128,
+    "room": "living",
+    "style": "se-asia",
+    "date": "2026-06-14"
+  },
+  {
+    "id": "s2",
+    "title": "3-Story Indochine-Style Townhouse",
+    "description": "Blending classic French elements with local materials to create a unique living space.",
+    "image": "/nhaxinh-vn/images/articles/sub-2.jpg",
+    "images": ["/nhaxinh-vn/images/articles/sub-2.jpg"],
+    "author": "Hương Lê",
+    "authorAvatar": "",
+    "likes": 95,
+    "room": "living",
+    "style": "french",
+    "date": "2026-06-11"
+  },
+  {
+    "id": "s3",
+    "title": "A Lush Balcony in the Heart of Saigon",
+    "description": "Turned a 4m² balcony into a relaxing green corner with plants and string lights.",
+    "image": "/nhaxinh-vn/images/articles/sub-3.jpg",
+    "images": ["/nhaxinh-vn/images/articles/sub-3.jpg"],
+    "author": "Tuấn Kiệt",
+    "authorAvatar": "",
+    "likes": 76,
+    "room": "balcony",
+    "style": "se-asia",
+    "date": "2026-06-09"
+  }
+]

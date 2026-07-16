@@ -17,7 +17,7 @@ interface SEOPageConfig {
 export function generateSEOMetadata(config: SEOPageConfig): Metadata {
   const { title, description, locale, image, type = 'website', publishedTime, author, path = '' } = config;
   const url = `${SITE_URL}/${locale}${path}`;
-  const ogImage = image || `${SITE_URL}/images/hero/hero-1.jpg`;
+  const ogImage = image || `${SITE_URL}/images/hero/hero-1.webp`;
 
   return {
     title: `${title} | ${SITE_NAME}`,
@@ -92,7 +92,7 @@ export function generateSEOMetadata(config: SEOPageConfig): Metadata {
 export function generateStructuredData(config: SEOPageConfig) {
   const { title, description, locale, image, type = 'website', publishedTime, author, path = '' } = config;
   const url = `${SITE_URL}/${locale}${path}`;
-  const ogImage = image || `${SITE_URL}/images/hero/hero-1.jpg`;
+  const ogImage = image || `${SITE_URL}/images/hero/hero-1.webp`;
 
   if (type === 'article') {
     return {
